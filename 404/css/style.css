@@ -1,0 +1,36 @@
+body {
+  background: #eee;
+}
+body h1, body h2 {
+  font-family: Roboto;
+  font-weight: 500;
+}
+body h1 span, body h2 span {
+  font-size: 18px;
+  font-weight: 200;
+}
+body h1 a, body h2 a {
+  color: #000;
+  font-size: 15px;
+  padding: 0 30px;
+  text-decoration: none;
+}
+
+#notFound {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%) scale(1.2);
+  width: 80%;
+  height: auto;
+}
+
+.text-404 {
+  display: block;
+  margin: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 999;
+}
