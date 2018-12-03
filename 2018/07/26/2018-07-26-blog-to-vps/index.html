@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="拾碎集">
 <meta property="og:description" content="由于Hexo博客托管到Github Page上国内访问速度较慢，加上手头有一个置闲的VPS，因此萌生了部署Hexo到VPS的想法。 下面是我尝试过的两种方法：  方式一：使用rsync   Rsync是一个远程数据同步工具，支持大多数的类Unix系统。Windows系统可以使用cwRsync或者Cygwin。但是此方法本人多次尝试未果，产生的Error无法Google到，故放弃/(ㄒoㄒ)/~~">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-03T08:51:20.719Z">
+<meta property="og:updated_time" content="2018-12-03T09:14:17.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Git Hooks同步blog至VPS">
 <meta name="twitter:description" content="由于Hexo博客托管到Github Page上国内访问速度较慢，加上手头有一个置闲的VPS，因此萌生了部署Hexo到VPS的想法。 下面是我尝试过的两种方法：  方式一：使用rsync   Rsync是一个远程数据同步工具，支持大多数的类Unix系统。Windows系统可以使用cwRsync或者Cygwin。但是此方法本人多次尝试未果，产生的Error无法Google到，故放弃/(ㄒoㄒ)/~~">
@@ -381,7 +381,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-03T16:51:20+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-03T17:14:17+08:00">
                 2018-12-03
               </time>
             
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  878
+                  876
                 </span>
               
 
@@ -513,7 +513,7 @@
 <p>重启nginx</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx</span><br></pre></td></tr></table></figure>
 <h2 id="5-Hexo配置"><a href="#5-Hexo配置" class="headerlink" title="5. Hexo配置"></a>5. Hexo配置</h2><p>在<code>_config.yml</code>文件中的<code>deploy</code>中添加如下内容</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@23.106.158.153:hexo.git,master</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@knives.ink:blog.git,master</span></span><br></pre></td></tr></table></figure>
 <p>发布测试</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>Done…</p>
