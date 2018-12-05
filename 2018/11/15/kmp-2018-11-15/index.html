@@ -123,7 +123,7 @@
 
 
 
-  <meta name="keywords" content="生活,">
+  <meta name="keywords" content="alogrithm,">
 
 
 
@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="昨晚下了小雨，温柔的雨，像当初那样。 太多的第一次，伴随着这场雨的谢幕，浸润进我的内心深处，便真的谢幕了。清早，无尽的困倦与疲惫，在街上也会有昏昏欲睡的感觉。突然很像顿一顿。离开这拥挤的人潮，这张复杂的大网，去一个充满了鸟语花香，环绕着茂林修竹，微风中树叶会飒飒而响的地方。 于是，一个人收拾了书包，踏上回灵龙的路。灵龙是我的家乡，我喜欢这个名字，它带给我好运，我相信这是一个出龙的地方。 也是第一次">
-<meta name="keywords" content="生活">
+<meta name="description" content="今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？ 1. 原始问题返回$str_1$中是否存在子串$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1  注意子串和子序列的区别：子串是连续的，而子序列不一定连续  tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。">
+<meta name="keywords" content="alogrithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写给韶华">
-<meta property="og:url" content="http://knivezee.site/2016/11/15/2016-11-05-write-to-shaohua/index.html">
+<meta property="og:title" content="KMP算法详解">
+<meta property="og:url" content="http://knivezee.site/2018/11/15/kmp-2018-11-15/index.html">
 <meta property="og:site_name" content="拾碎集">
-<meta property="og:description" content="昨晚下了小雨，温柔的雨，像当初那样。 太多的第一次，伴随着这场雨的谢幕，浸润进我的内心深处，便真的谢幕了。清早，无尽的困倦与疲惫，在街上也会有昏昏欲睡的感觉。突然很像顿一顿。离开这拥挤的人潮，这张复杂的大网，去一个充满了鸟语花香，环绕着茂林修竹，微风中树叶会飒飒而响的地方。 于是，一个人收拾了书包，踏上回灵龙的路。灵龙是我的家乡，我喜欢这个名字，它带给我好运，我相信这是一个出龙的地方。 也是第一次">
+<meta property="og:description" content="今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？ 1. 原始问题返回$str_1$中是否存在子串$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1  注意子串和子序列的区别：子串是连续的，而子序列不一定连续  tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-03T08:04:35.485Z">
+<meta property="og:updated_time" content="2018-12-05T09:53:38.910Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写给韶华">
-<meta name="twitter:description" content="昨晚下了小雨，温柔的雨，像当初那样。 太多的第一次，伴随着这场雨的谢幕，浸润进我的内心深处，便真的谢幕了。清早，无尽的困倦与疲惫，在街上也会有昏昏欲睡的感觉。突然很像顿一顿。离开这拥挤的人潮，这张复杂的大网，去一个充满了鸟语花香，环绕着茂林修竹，微风中树叶会飒飒而响的地方。 于是，一个人收拾了书包，踏上回灵龙的路。灵龙是我的家乡，我喜欢这个名字，它带给我好运，我相信这是一个出龙的地方。 也是第一次">
+<meta name="twitter:title" content="KMP算法详解">
+<meta name="twitter:description" content="今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？ 1. 原始问题返回$str_1$中是否存在子串$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1  注意子串和子序列的区别：子串是连续的，而子序列不一定连续  tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。">
 
 
 
@@ -175,13 +175,13 @@
 
 
 
-  <link rel="canonical" href="http://knivezee.site/2016/11/15/2016-11-05-write-to-shaohua/">
+  <link rel="canonical" href="http://knivezee.site/2018/11/15/kmp-2018-11-15/">
 
 
 
 
 
-  <title>写给韶华 | 拾碎集</title>
+  <title>KMP算法详解 | 拾碎集</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://knivezee.site/2016/11/15/2016-11-05-write-to-shaohua/">
+    <link itemprop="mainEntityOfPage" href="http://knivezee.site/2018/11/15/kmp-2018-11-15/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Knives">
@@ -353,7 +353,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">写给韶华</h2>
+          <h2 class="post-title" itemprop="name headline">KMP算法详解</h2>
         
 
         <div class="post-meta">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-15T20:57:11+08:00">
-                2016-11-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-15T17:48:55+08:00">
+                2018-11-15
               </time>
             
 
@@ -381,8 +381,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-03T16:04:35+08:00">
-                2018-12-03
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-05T17:53:38+08:00">
+                2018-12-05
               </time>
             
           </span>
@@ -395,7 +395,7 @@
 
           
           
-             <span id="/2016/11/15/2016-11-05-write-to-shaohua/" class="leancloud_visitors" data-flag-title="写给韶华">
+             <span id="/2018/11/15/kmp-2018-11-15/" class="leancloud_visitors" data-flag-title="KMP算法详解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3,838
+                  2,377
                 </span>
               
 
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  13
+                  9
                 </span>
               
             </div>
@@ -457,121 +457,92 @@
       
 
       
-        <p>昨晚下了小雨，温柔的雨，像当初那样。</p>
-<p>太多的第一次，伴随着这场雨的谢幕，浸润进我的内心深处，便真的谢幕了。<br>清早，无尽的困倦与疲惫，在街上也会有昏昏欲睡的感觉。突然很像顿一顿。离开这拥挤的人潮，这张复杂的大网，去一个充满了鸟语花香，环绕着茂林修竹，微风中树叶会飒飒而响的地方。</p>
-<p>于是，一个人收拾了书包，踏上回灵龙的路。灵龙是我的家乡，我喜欢这个名字，它带给我好运，我相信这是一个出龙的地方。</p>
-<p>也是第一次，这么想了，便这么做了。</p>
-<p>天朗气清，惠风和畅。阳光透过车窗的玻璃，由刺目的亮白变成了略显温柔的金黄。在我的眼中，遍洒光明。阳光普照大地，给予万物生机，虽说从科学的角度出发这是自然规律。但若只是如此，少了文学的浪漫，世界也会在科学的严肃中慢慢变得冰冷。</p>
-<p>有一些东西，作为人，是不能丢的。而有些人不相信这些，所以对于那些丢失了的，他们要不停的找，找一辈子。</p>
-<p>找一辈子么？</p>
-<p>阳光从右边的窗户打进来，又从左边的窗户打进来，就这么不断的反复着，这迷蒙的光影，带着那记忆里的日子，一遍又一遍的在眼前回放。</p>
-<p>美好如斯。</p>
-<p>这光影带着回忆，如潮水般渐渐淹没了我。</p>
-<p>昏昏欲睡。</p>
-<p>忽的醒来，看看表发现只过了四十分钟。依旧是闪烁的光影。离开城市已经一个多小时了。感觉上仿佛过了一个世纪那般久远。</p>
-<p>大脑是混沌的，阳光下，我习惯性的笑。我知道，是冰冷的。</p>
-<p>在路上，伸出手折下车窗外一片香樟，凑到鼻子前，静静地，悠悠地嗅一嗅，嘴角不禁有了一丝笑容。</p>
-<p>是的。还是两年前的味道，那干净的气息，和夹在书里那一片一模一样。只是，少了点什么。</p>
-<p>亦或是，多了一点？</p>
-<p>谁说不会变，人总是会变的。在我的词典里、它叫成长。</p>
-<p>不会变的，叫回忆，只叫回忆。</p>
-<p>很不幸的是，由于假期这令人瞠目结舌的客运量，提前一个小时赶往车站的我连直达灵龙的车轮胎也没见着。于是换乘一辆，不过代价是下车后我还需要享受一个小时的步行。</p>
-<p>往往人在受到挫折之后，如果没有一个契机是不会轻易醒悟的；在内心泛起孤寂与凄凉之时，如果不领略一些温情的东西，是不会迅速接纳温暖的阳光的。<br>下了车，望着蜿蜒盘旋的车路，遥遥，没有尽头。当然，我要到的尽头如果说看的见，也是半个时辰以后的事了。</p>
-<p>深吸一口气。不就是一条路么，说走就走，启程。</p>
-<p>天朗气清，惠风和畅。好吧我承认我语词匮乏了。但我实在找不出有什么词比它形容的更亲切。仰起头，眼睛很自然的眯成一条缝。迈着最慵懒的步子，我缓缓前行。</p>
-<p>呼–吸–呼–吸—我是有多久，没有见到这么蓝的天了。云是耀目的白，我记得，那一朵朵都是儿时的梦。</p>
-<p>还是说，这天一直都在，只是我多久没有了这种心情。</p>
-<p>这么问自己，便只能沉默。</p>
-<p>不得不说有件很不错的事。有位阿姨（本以为是姐姐，没想到已经有孩子了，就只能叫阿姨了。计划生育万岁。（ˉ﹃ˉ）），一位大哥哥与我同行。他们二人说话我则是远远的走在前面。除了开始的几句问候便没有话了。却不想这阿姨的丈夫来接她，我便在手足无措中搭上了一趟便车。</p>
-<p>一起来的除了她的丈夫还有她五岁的女儿，一个很可爱的小姑娘。要说孩子是祖国的花朵，看看这个小姑娘，确实如此。大而亮的眼睛，粘粘的腻在妈妈的怀里，这孩子，是用眼睛笑的。这也是为什么，会有人说我的笑是虚伪的。当然，对于这些话，我只能撇撇嘴。<br>我可不这么认为。</p>
-<p>‘妈妈妈妈，我想你了’</p>
-<p>‘妈妈也想你啊’</p>
-<p>‘妈妈妈妈，我感冒了……’</p>
-<p>‘没事儿，妈妈给你买了药，一会儿回家给你喝’</p>
-<p>‘妈妈给我买片片药了吗’</p>
-<p>‘妈妈没有买片片药，那是大人喝的，妈妈给你买了冲剂，小孩喝的那种’</p>
-<p>……</p>
-<p>‘妈妈妈妈，我上灵龙小学了，我每天好紧张的，打铃的时候就必须进教室……’</p>
-<p>‘哇，那么紧张的啊，一打铃就要进教室吗？’</p>
-<p>‘恩！对了妈妈，我们的那个柜子是用木头做的，下边还可以放书包’</p>
-<p>‘哦，你说的是课桌吧’</p>
-<p>‘恩……妈妈，妈妈，我想你了……’</p>
-<p>‘恩，妈妈也想你了啊……’</p>
-<p>‘妈妈，妈妈……’</p>
-<p>……</p>
-<p>温情的东西，总是能唤起对生命的敬畏与依恋。这到底，是一种怎样的力量。我并没有一直看着他们。因为我不想我的目光显得那么突兀。这个阳光暖暖的午后。这对母女带给我的，是唤醒我最强大的力量。</p>
-<p>经常上网，看了太多冰冷的让人心寒的东西。不知不觉之中，却离生活远了。我总是对别人说，生活可以很简单也可以很复杂，殊不知，被情绪左右了思想的我，却一直没明白。</p>
-<p>看向窗外，感受着身上暖暖的太阳，忽然之间，阳光便真的成了阳光，蓝天有了它的灵动，白云也变得轻盈。万物，在我的眼中终于恢复了本来的面貌，融入了本该属于万物的灵魂。</p>
-<p>下车，感谢，道别。感谢这美丽的相逢。</p>
-<p>一个人静静的站在大路边，注视这那满地黄叶堆积的小路，贪婪的深吸一口气。我知道，我到家了。</p>
-<p>这是个落木萧萧的季节。微风中，充斥天地之间的是树叶沙沙的轻响。很静心的乐曲。天空中，陆陆续续的纷飞下一片片枯叶，午后的阳光穿透树枝的间隙，洒下一地金黄，伴着微风温柔地在林间流动着。<br>我很享受这种感觉，就像享受淅淅沥沥的小雨。</p>
-<p>小路旁的地里，是丰收之后孤独的玉米杆。每一株都高过我，约莫两米多的样子。成排的矗立在略带寒意的萧瑟秋风中，伴随着秋风的，是望不到边的玉米杆kaka的断裂声。就像烈火中柴火断裂的声音。此起彼伏。</p>
-<p>一岁便进了镇安县。从那以后每年回家两次，估计平均下来一年七天。要么盛夏，要么寒冬。沁润着温润秋意的灵龙，我还是头一次见到。</p>
-<p>萧瑟秋风今又是，换了人间。</p>
-<p>变的，是我。</p>
-<p>丰收的季节，也是破败的季节。盈虚有数，万物自有天命；缘起缘落，吾亦不必强求。</p>
-<p>一切随心。</p>
-<p>农村总是很吸引我。农村人朴实，到了这个环境，心也自然平静了下来。思绪也渐渐变得活泼。</p>
-<p>恩，那头小猪仔看着好可爱，诶，等等，怎么有种胖子的感觉。恩，不对，旁边那头大的才像，眼睛小。恩，不错，是了。</p>
-<p>哎，叔叔阿姨伯伯婶婶们，想说我长得帅就直说呗，长的漂亮是个什么意思。<br>看到了那低矮的土房。爷爷坐在门口，知道我回来，他一直等着。</p>
-<p>在房前看着爷爷种的菜，藤啊蔓啊什么的。原想藉此感悟点什么，可谁知看到豌豆的一瞬间心里自个儿计较了起来。</p>
-<p>看看这豌豆，生的比我还低调不用想就是矮茎了，那就是隐形纯合咯，旁边这个，比刚那个高这么多应该就是高茎了吧，只是不知道是纯合还是杂合，不过刚好材料齐全可以做一组测交实验……</p>
-<p>不过没有像牛顿一样大脑中瞬间充满无穷无尽的二项式定理，不知我是该哭该笑。</p>
-<p>夜来得很快，很安静，就像悄悄变黄的叶子，无声无息。</p>
-<p>还是那么美丽的夜空，满天星斗，看得见银河。儿时的星空，记忆中也是这<br>样。承载了我十七年的美丽的梦。不过如今是秋季，和我看过的，显然不是同一片星空。</p>
-<p>乡村的清晨很寂静。在城里，我醒来时它还睡眼朦胧，在农村，我起来时它已然睁着亮晶晶的眸子调皮的凝望着红彤彤的朝阳。</p>
-<p>门前藏蓝色白边的花儿，绿油油的一人高不知名的庄稼，紫色的豌豆花，麦色的玉米杆，墨绿的柏树，绿叶中挤出来的橙黄色的喜人的柿子，乳白色翩翩飞舞的蝴蝶，苍翠中泛起点点暗红的山坡。环视一周，乡村总是那么色彩斑斓。<br>昨夜星辰昨夜风，画楼西畔桂堂东。<br>身无彩凤双飞翼，心有灵犀一点通。</p>
-<p>昨夜斑驳的记忆，即使睡去也依旧在梦里清晰，安安静静，全是我期待的生活。梦，总是给人最美好的幻境，也是最残酷的谎言。梦醒之后，睁开眼，看着时光冲刷下沧桑的老房子，心中空空落落，一直在下沉，却没有一个底。<br>诗人说心有灵犀呢。不知昨夜，你是否无眠。<br>秋。苍凉。孤寂。</p>
-<p>无边落木萧萧下，不尽长江滚滚来。</p>
-<p>桑之未落，其叶沃若。桑之落矣，其黄而陨。</p>
-<p>氓之蚩蚩，抱布贸丝。匪来贸丝，来即我谋。</p>
-<p>士之耽兮，犹可说也。女之耽兮，不可说也。</p>
-<p>女也不爽，士贰其行。士也罔极，二三其德。</p>
-<p>信誓旦旦，不思其反。反是不思，亦已焉哉！</p>
-<p>皎皎白驹，在彼空谷，生刍一束，其人如玉。</p>
-<p>青青子衿，悠悠我心。青青子佩，悠悠我思。</p>
-<p>楚天万里清秋，水随天去秋无际。</p>
-<p>迢迢牵牛星，皎皎河汉女。</p>
-<p>……</p>
-<p>想说的那么多。我的文字却如此苍白。一人游荡在这相见，满目秋意，心中不断的冒出这些诗句。想想，颓废了两天，也该是个尽头。</p>
-<p>如今回首，向昔日的我说个hello，恍惚中竟然有种隔世之感。心中怆然，几年而已，到底变了多少。天知地知我知，你不知。</p>
-<p>欲哭，却无泪。除了报以一声长叹，便只能摇头苦笑。</p>
-<p>梦一场、只要有你、我知道、恋人未满、夏至未至、人海中遇见你、最美的时光、踮起脚尖亲吻你额头、夏有乔木雅望天堂、better me、第二颗心爱的思考、“谢谢你的176颗心，哦不，确切的来说是177颗”、“很自然的想起你，很奇妙，对不对……”沉迷，人生，一片海，告别薇安，自由，想自由。</p>
-<p>是啊，一个个多么美丽的故事。美的炫目，美的精彩。</p>
-<p>感情从来没有什么对与错，一场相遇，一份经历，任谁都应该感谢。就像夏至未至中那句慨叹，</p>
-<p>那个男孩，教会我成长</p>
-<p>那个女孩，教会我爱</p>
-<p>他们曾经出现在我的生命里</p>
-<p>然后又消失不见</p>
-<p>可是，我不相信他们是天使</p>
-<p>他们是世间最普通的男孩和女孩</p>
-<p>所以我就一直这么站在香樟树下等待着</p>
-<p>因为我相信，他们总有一天会回来</p>
-<p>回来找我，教会我更多的事</p>
-<p>不过，会不会回来呢。有待考证。就像第二颗心在纸条上给我写的：在有生之年能遇见你，竟花光所有运气。</p>
-<p>莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。</p>
-<p>料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。</p>
-<p>在我失心落寞之时，我脚下的土地总会给予我关怀。当然，韩寒会说‘在中国没有一片土地是你的’。我耸耸肩，就像呐，为什么非要‘是我的’呢。太阳不属于我我就不能享受它的温暖？月亮不属于我我就不能欣赏她的美丽？花朵不属于我我就不能感受她的芬芳？世人总是苦于占有累于占有，才一直会缺乏幸福感，才会引起那么多纠纷。苦于占有，才活得那么累。到头来伤了别人，更重要的，伤了自己。把心放宽，是你的好好珍惜，不是你的莫强求。感情，无论种类，无论对错，都不要想着去占有。你明白吗？</p>
-<p>你一直不明白。如果你明白，一定要继续明白下去。</p>
-<p>是树在动，风在动，还是你的心在动呢？</p>
-<p>漫天飘零的枯叶，一层层堆积起来。寻到而是蹦蹦跳跳过的那条小路去幽静的后山。踱步。听风吹树叶，看落木萧萧。</p>
-<p>不知从何时起喜欢上汪峰。喜欢上他那歇斯底里的歌声。两天了。心中不断回响这那曲调。那支我无意邂逅，一直都懂，  却又刚刚明白的歌。那声音时远时近，就这么，深深地烙印在我的心里。伴随着歌声，缓缓铭刻的，还有那恍如隔世的昨天。下一次我静静回想的时候，该是很久，很久以后了。</p>
-<p>那一天我漫步在夕阳下，看见一对恋人相互依偎</p>
-<p>那一刻往事涌上心头，刹那间我泪如雨下</p>
-<p>昨夜我静呆立雨中，望着街对面一动不动</p>
-<p>那一刻仿佛回到从前，不由得我已泪留满面</p>
-<p>至少有十年不曾流泪，至少有十首歌给我安慰</p>
-<p>可现在我会莫名的哭泣，当我想你的时候。</p>
-<p>生命就像是一场告别，从起点对结束再见</p>
-<p>你拥有的渐渐是伤痕，在回望来路的时候</p>
-<p>那天我们相遇在街上，彼此寒喧并报以微笑</p>
-<p>我们相互拥抱挥手道别，转过身后已泪流满面</p>
-<p>至少有十年我不曾流泪，至少有十首歌给我安慰</p>
-<p>可现在我会莫名的心碎，当我想你的时候。</p>
-<p>至少有十年我不曾流泪，至少有十首歌给我安慰</p>
-<p>可现在我会莫名的哭泣，当我想你的时候。</p>
+        <p>今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？</p>
+<h3 id="1-原始问题"><a href="#1-原始问题" class="headerlink" title="1. 原始问题"></a>1. 原始问题</h3><p>返回$str_1$中是否存在<strong>子串</strong>$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1</p>
+<ul>
+<li>注意子串和子序列的区别：子串是连续的，而子序列不一定连续</li>
+</ul>
+<p>tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。</p>
+<h3 id="2-朴素算法-暴力解法"><a href="#2-朴素算法-暴力解法" class="headerlink" title="2. 朴素算法(暴力解法)"></a>2. 朴素算法(暴力解法)</h3><p>从$str_1$中逐个对$str_2$进行配对，若出现不匹配，则从$str_1$下个位置继续匹配，直到$str_2$或者$str_1$结束为止</p>
+<p>分析：</p>
+<p>此方法的时间复杂度为$O(N*M)$,其中$N$为$str_1$的长度指数，$M$为$str_2$长度指数，并且$N&gt;=M$</p>
+<p>那么基础方法为什么不行？</p>
+<p>因为从任意位置配$str_2$是独立的，没有加速的信息。而KMP是<strong>让前面配过的信息指导后面</strong>，这是它加速的原因，具体如何加速，后面会讲到。</p>
+<h3 id="3-基础概念"><a href="#3-基础概念" class="headerlink" title="3. 基础概念"></a>3. 基础概念</h3><p>下面先介绍一些KMP算法相关的概念：</p>
+<h4 id="3-1-最长前缀和最长后缀的匹配长度"><a href="#3-1-最长前缀和最长后缀的匹配长度" class="headerlink" title="3.1 最长前缀和最长后缀的匹配长度"></a>3.1 最长前缀和最长后缀的匹配长度</h4><p>在一个字符串中，最长前缀和最长后缀的匹配长度。比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abcabcd</span><br></pre></td></tr></table></figure>
+<p>求$d$前面的串$abcabc$的最长前缀和最长后缀的匹配长度，这里有一个限定条件：</p>
+<ul>
+<li>前缀不能包含最后一个字符</li>
+<li>后缀不能包含第一个字符</li>
+</ul>
+<p>此时。前缀取3时候$abc==abc$，因此$d$位置信息这里可以记录一个3,这个3的意思是——d前面字符串的最长前缀和最长后缀的匹配长度。</p>
+<h4 id="3-2-计算next数组"><a href="#3-2-计算next数组" class="headerlink" title="3.2 计算next数组"></a>3.2 计算next数组</h4><p>next数组中的值即$3.1$中介绍的当前字符前的最长前缀和最长后缀的匹配长度。举个$next$数组的例子</p>
+<p>$eg: ababac$</p>
+<p>默认值如下所示：</p>
+<ol>
+<li>0位置前面没有字符串，默认-1</li>
+<li>1位置上前面就一个字符串，默认为0</li>
+</ol>
+<p>计算出来为：<br>$[-1, 0, 0, 1, 2, 3]$</p>
+<h4 id="3-3-next数组加速流程"><a href="#3-3-next数组加速流程" class="headerlink" title="3.3 next数组加速流程"></a>3.3 next数组加速流程</h4><p>假设有两个字符串$str_1$和$str_2$：</p>
+<p>$str_1$  —- i ——–X</p>
+<p>$str_2$        0———Y</p>
+<p>$str_1$的$i$位置开始匹配，一直到$str_1$和$str_2$的$X$，$Y$位置不匹配。</p>
+<p>朴素算法的方式为，从$i+1$的位置开始，再与$str_2$的$0$位置开始匹配；而有了$next$信息以后，我们不那么做，因为从i位置开始，$[i,X)$与$[0,Y)$这两个子串一路都是相等的;</p>
+<p>我们对$Y$位置求得了一个信息——即最长前缀和最长后缀的匹配长度，所以在$str_2$中假设求得了这个长度为$x$，则$str_2[0,x-1]$和$str_2[Y-x,Y-1]$长度相等且一样，接下来的流程就变成了$str_1[X-x,X-1]$与$str_2[0, x-1]$已经匹配，相对应的从$str_1[Z=x]$开始继续往下匹配即可，$str_2$的位置不变</p>
+<p>$eg:$<br>$str_1$ —abcabct<br>$str_2$ abcabca</p>
+<p>总结来说，就是每一次配对不成功，$str_2$都往右滑动(推)，而且有一段是我们不需要去配对的，从不确定的位置继续往下寻找</p>
+<h4 id="3-4-KMP算法加速的实质"><a href="#3-4-KMP算法加速的实质" class="headerlink" title="3.4 KMP算法加速的实质"></a>3.4 KMP算法加速的实质</h4><p>一旦$str_1$和$str_2$没有配对上时候，假设这里的$X$和$Y$位置上的字母没有匹配上，Y位置上计算出的next得到的位置是$Z$，对应$str_1$中的$j$位置。此时开始用$X$和$Z$进行匹配</p>
+<p>$str_1$   i——-j——-X<br>$str_2$   0——Z——-Y</p>
+<p>这件事情的实质是——我们没有否定从$j$位置开头，有可能能匹配出$str_2$这种可能，虽然现在是$X$和$Z$进行比对的，但实质上比对的开头是$j$位置和$0$位置，只是因为$str_1[j,X)$和$str_2[0,Z)$是相等的，于是我们省掉了配对的过程而已；</p>
+<p>同时我们否定了从i位置开始到j位置中间这些位置的可能性，因为中间这些位置一律都配不出$str_2$。</p>
+<p>为什么i到j匹配不到$str_2$呢？</p>
+<p>$pf:$</p>
+<p>我们假设有可能能匹配到$str_2$</p>
+<p>$str_1$   i—k—-j——-X<br>$str_2$   0—————Y</p>
+<p>假设$i$和$j$之间存在一个$k$位置，从$k$位置出发往后可以匹配出所有的$str_2$,且$next[Y] =  X - j$</p>
+<p>那么$str_1[k,X)$应该和$str_2$等量的前缀可以配上（因为既然都从$k$开始匹配了$str_2$全部，那么至少$[k,X]$长度是小于$str_2$的长度的，即$str_2$前面至少会等于$str_1[k,X)$</p>
+<p>我们就可以得到，$str_2$中[0，Y)就存在了一个长度大于$X-j$的一个最长前缀等与最长后缀,与$next$数组定义相矛盾</p>
+<p>证毕</p>
+<h4 id="3-5-code"><a href="#3-5-code" class="headerlink" title="3.5 code"></a>3.5 code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getIndexOf</span><span class="params">($str_1$, $str_2$)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">if</span> param illegal</span></span><br><span class="line">		return -1</span><br><span class="line">	next[] = getNext($str_2$)</span><br><span class="line">	i = <span class="number">0</span></span><br><span class="line">	j = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> i&lt;len($str_1$) &amp;&amp; j &lt; len($str_2$)</span><br><span class="line">		<span class="keyword">if</span> $str_1$[i] == $str_2$[j]</span><br><span class="line">			i++</span><br><span class="line">			j++</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			<span class="keyword">if</span> next[j] == <span class="number">-1</span>  <span class="comment">// 说明第一个字符都配不出来，此时j已经等于0</span></span><br><span class="line">				i++</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				j = next[j]</span><br><span class="line">	<span class="keyword">return</span> j == len($str_2$) ? i-j : <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-7-next数组求法"><a href="#3-7-next数组求法" class="headerlink" title="3.7 next数组求法"></a>3.7 next数组求法</h4><ol>
+<li>0位置 -1</li>
+<li>1位置 0</li>
+<li>i位置如何求</li>
+</ol>
+<p>假设0~(i-1)位置上已经正确求得</p>
+<p>$eg:$</p>
+<p>——————-ba<br>——————-(i-1) i</p>
+<p>假设$i-1$的位置值为4，这时看长度为4的前缀的下一个字符，</p>
+<p>如果它等于$a$,则$i$位置等于5，为什么不可能有更长的，我们做一个假设对$a$来说如果你存在一个前缀为6,后缀为6。则，$i-1$位置肯定是b，那么长度为6的前缀的最后一个字符也必定为$b$,那么当时对$b$求的时候，必定为5而不是4，即$i-1$位置上所求得的最长前缀和最长后缀的值是不对的，证毕。</p>
+<p>如果它不等于a,应该怎么求</p>
+<p>$eg: str ababcababctk$</p>
+<p>其中$str_{i-1} = b$， $str_i = e$</p>
+<p>此时$next[i-1] = 4$（abab）,并且$c != t$,继续将$abab$划分为前缀$ab$，再用$a$和$t$进行对比，还是不相等，再往前跳，$ab$这个串没相应的前后缀了，</p>
+<p>eg: ababcababak</p>
+<p>这种情况前缀为abab, 此时 c!=a，c前面的字符串为abab,匹配的最大前缀为ab,此时a = a（i位置上的），则最大前缀长度就等于c前面的最大匹配2再加上1为3，除此之外不存在更长的了</p>
+<h4 id="3-8-next-code"><a href="#3-8-next-code" class="headerlink" title="3.8 next code"></a>3.8 next code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] getNext($str_2$)</span><br><span class="line">	<span class="function"><span class="keyword">if</span> <span class="title">len</span><span class="params">($str_2$)</span> </span>== <span class="number">1</span></span><br><span class="line">		<span class="keyword">return</span> [<span class="number">-1</span>]</span><br><span class="line">	next[<span class="number">0</span>] = <span class="number">-1</span></span><br><span class="line">	next[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">	i = <span class="number">2</span>  </span><br><span class="line">	cn = <span class="number">0</span>  <span class="comment">// 跳到的位置</span></span><br><span class="line">	<span class="keyword">while</span> i &lt; len($str_2$)</span><br><span class="line">		<span class="keyword">if</span> $str_2$[i<span class="number">-1</span>] == $str_2$[cn]  <span class="comment">// 前一个字符 == 当前跳到位置的字符</span></span><br><span class="line">			next[i++] = ++cn      <span class="comment">// 跳到位置（跳到cn,则前面的字符串的长度为cn）</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> cn &gt; <span class="number">0</span>			  <span class="comment">// cn往前跳（我还可以往前跳）</span></span><br><span class="line">			cn = next[cn]</span><br><span class="line">		<span class="keyword">else</span>					  <span class="comment">// 跳无可跳</span></span><br><span class="line">			next[i++] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-KMP的应用"><a href="#4-KMP的应用" class="headerlink" title="4. KMP的应用"></a>4. KMP的应用</h3><h4 id="4-1-question1"><a href="#4-1-question1" class="headerlink" title="4.1 question1"></a>4.1 question1</h4><p>假设原始串为$abcabc$，请你生成一个大字符串，只能在原串后面添加，要求此大串的长度是最短的，此大串包含2个原始串，而且开头的位置还要不一样</p>
+<p>$eg: abcabc$</p>
+<p>结果为：abcabcabc，添加了一个abc</p>
+<p>$eg: abcabc$</p>
+<p>思路：求得原串得next数组，求完以后，再求一个终止位得next值（△位置处），就求得了整个串的最大前缀和最大后缀，将这两个串叠在一起就是原串，后面再添加上就是答案了</p>
+<p>举个例子：</p>
+<p>$aaaaa(x)$<br>求得aaaaa的next为[-1,0,1,2,3]，再多求一个位置x，变为[-1,0,1,2,3,4],我们就知道，后面和前面是可以复用的，叠在一起，最后只用添加一个a即可</p>
+<h4 id="4-2-question2-魔性的题目"><a href="#4-2-question2-魔性的题目" class="headerlink" title="4.2 question2 魔性的题目"></a>4.2 question2 魔性的题目</h4><p>给你两颗树$T1$,$T2$</p>
+<p>问：$T1$中的某个子树是否为$T2$，包含则返回true,否则返回false</p>
+<p>求解：将一棵树序列化，变为string的形式，这个string可以唯一的代表这个树，节点为NULL的时候变为#，每个节点之间的值后加上‘_’区分即可</p>
+<p>二叉树的序列化，前中后序列都可以</p>
+<p>将$T1$序列化为$S1$,$T2$序列化为$S2$，若$S2$是$S1$的子串，则$T2$必定是$T1$的子树</p>
+<h4 id="4-3-question-3"><a href="#4-3-question-3" class="headerlink" title="4.3 question 3"></a>4.3 question 3</h4><p>问：如何判断一个字符串是否是由子串范式得到的，即一个大字符串是否由一个小字符串重复多次得到的</p>
+<p>$eg: 123123123123$  –&gt;true</p>
+<p>思路： 实质上就是一个KMP问题，终止条件下前缀和后缀永远是一个整数倍的关系</p>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h3><p>KMP是70年代的算法，当下流行的大部分都是概率的，贝叶斯，数据挖掘等基于概率的算法，这些基于概率的算法都是不追求最优解的，因为最优解不可达，相当复杂，只能追求优良解。</p>
+<p>但基础算法可以提高我们的coding能力，基础算法也可以说是确定算法，有唯一正确解。虽然不是学术，工程的主流，但是它太基础了，一定要搞明白，因为就算是算法工程师也需要考coding。</p>
+<p>对于上面的代码，都是以伪代码的形式给出，具体实现将在我的GitHub中陆续上传。</p>
 <blockquote>
-<p>谨以此文，祭奠你那抓不住的韶华</p>
+<p>Written with <a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a>. 2018.11.15</p>
 </blockquote>
 
       
@@ -603,11 +574,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2016/11/15/2016-11-05-write-to-shaohua/">写给韶华</a></p>
+  <p><span>本文标题:</span><a href="/2018/11/15/kmp-2018-11-15/">KMP算法详解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Knives 的个人博客">Knives</a></p>
-  <p><span>发布时间:</span>2016年11月15日 - 20:11</p>
-  <p><span>原始链接:</span><a href="/2016/11/15/2016-11-05-write-to-shaohua/" title="写给韶华">http://knivezee.site/2016/11/15/2016-11-05-write-to-shaohua/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://knivezee.site/2016/11/15/2016-11-05-write-to-shaohua/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年11月15日 - 17:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/15/kmp-2018-11-15/" title="KMP算法详解">http://knivezee.site/2018/11/15/kmp-2018-11-15/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://knivezee.site/2018/11/15/kmp-2018-11-15/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -631,7 +602,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活/" <i="" class="fa fa-tag"> 生活</a>
+            <a href="/tags/alogrithm/" <i="" class="fa fa-tag"> alogrithm</a>
           
         </div>
       
@@ -659,8 +630,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/31/2016-05-31-singleton-post/" rel="next" title="Singleton的几种实现方案">
-                <i class="fa fa-chevron-left"></i> Singleton的几种实现方案
+              <a href="/2018/07/26/2018-07-26-blog-to-vps/" rel="next" title="使用Git Hooks同步blog至VPS">
+                <i class="fa fa-chevron-left"></i> 使用Git Hooks同步blog至VPS
               </a>
             
           </div>
@@ -668,10 +639,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/18/2017-12-18-matrix-yingyong/" rel="prev" title="矩阵理论在深度学习中的应用即主成分分析">
-                矩阵理论在深度学习中的应用即主成分分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -725,8 +692,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -836,6 +812,22 @@ var ap = new APlayer({
 		<!--my custom code end-->
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原始问题"><span class="nav-number">1.</span> <span class="nav-text">1. 原始问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-朴素算法-暴力解法"><span class="nav-number">2.</span> <span class="nav-text">2. 朴素算法(暴力解法)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-基础概念"><span class="nav-number">3.</span> <span class="nav-text">3. 基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-最长前缀和最长后缀的匹配长度"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 最长前缀和最长后缀的匹配长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-计算next数组"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 计算next数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-next数组加速流程"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 next数组加速流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-KMP算法加速的实质"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 KMP算法加速的实质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-code"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-next数组求法"><span class="nav-number">3.6.</span> <span class="nav-text">3.7 next数组求法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-next-code"><span class="nav-number">3.7.</span> <span class="nav-text">3.8 next code</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-KMP的应用"><span class="nav-number">4.</span> <span class="nav-text">4. KMP的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-question1"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 question1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-question2-魔性的题目"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 question2 魔性的题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-question-3"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 question 3</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-总结"><span class="nav-number">5.</span> <span class="nav-text">5. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1184,6 +1176,26 @@ var ap = new APlayer({
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   
 
 
