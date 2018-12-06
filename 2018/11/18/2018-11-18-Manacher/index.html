@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="拾碎集">
 <meta property="og:description" content="1. 问题描述Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的） $eg: 121,  1221$ $121$的最大回文字串即$12$，$1221$的最大回文子串为$12$ 2. 暴力解法2.1 解决思路这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。 这里首先">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-06T03:17:07.329Z">
+<meta property="og:updated_time" content="2018-12-06T06:57:24.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Manacher">
 <meta name="twitter:description" content="1. 问题描述Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的） $eg: 121,  1221$ $121$的最大回文字串即$12$，$1221$的最大回文子串为$12$ 2. 暴力解法2.1 解决思路这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。 这里首先">
@@ -381,7 +381,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-06T11:17:07+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-06T14:57:24+08:00">
                 2018-12-06
               </time>
             
@@ -498,12 +498,12 @@
 <ul>
 <li><p>情况一：$i’$的回文区域，彻底的在L和R之间，这种情况下，i位置的回文区域不用扩，多远呢？一定和i’一样。$eg：Z(KaBatFtaBaK)Y$,这个串中$F$是$C$，括号分别代表左右边界，假设求的$i$位置为右边的$B$，$i’$则为左边的B，$i’$的回文区域是$aBa$，则$i$的回文区域也是$aBa$</p>
 <ul>
-<li>证明： 字符串为$&lt;L, i’，C, i, R&gt;$ ，假设当时$i’$扩的区域为$&lt;l…i’…r&gt;$,则对应的$i$的回文区域为$<r'...i...l'>$,即原字符串处理为$&lt;L…l…i’…r…C…r’…i…l’…R&gt;$。首先证明$<r'...l'>$中间这一段是回文：因为$&lt;l,r&gt;$为已经求得的回文，而$&lt;L…R&gt;$整体都是回文，所以$<r'...l'>$为$&lt;l…r&gt;$的逆序,因此$<r'...l'>$是回文得证。然后证明它不可能扩地更大了，假设$&lt;L…Yl…i’…rX…C…X’r’…i…l’Y’… R&gt;$中存在这样紧邻$i$，$i’$回文区域的字符，由于当时$l$,$r$没有继续扩则$Y！=X,X = X’,Y = Y’,X’!=Y’$$\Rightarrow$$<r'...l'>$不可能扩的更大$\Rightarrow$证毕。</r'...l'></r'...l'></r'...l'></r'...l'></r'...i...l'></li>
+<li>证明： 字符串为$&lt;L, i’，C, i, R&gt;$ ，假设当时$i’$扩的区域为 $&lt;l…i’…r&gt;$ ,则对应的$i$的回文区域为 $<r'...i...r'>$ ,即原字符串处理为 $&lt;L…l…i’…r…C…r’…i…l’…R&gt;$ 。首先证明$<r'...l'>$中间这一段是回文：因为$&lt;l,r&gt;$为已经求得的回文，而 $&lt;L…R&gt;$ 整体都是回文，所以 $<r'...l'>$ 为 $&lt;l…r&gt;$ 的逆序,因此 $<r'...l'>$ 是回文得证。然后证明它不可能扩地更大了，假设$&lt;L…Yl…i’…rX…C…X’r’…i…l’Y’…R&gt;$中存在这样紧邻$i$，$i’$回文区域的字符，由于当时$l$,$r$没有继续扩则 $Y!=X,X=X’,Y=Y’,X’!=Y’$ 推出 $<r'...l'>$ 不可能扩的更大，证毕。</r'...l'></r'...l'></r'...l'></r'...l'></r'...i...r'></li>
 </ul>
 </li>
 <li><p>情况二：$i’$的回文范围在以$C$为中心的回文半径之外 $&lt;l…L…i’…r…C…i…R&gt;$，这种情况下，$i$的回文半径情况就是i到R的长度。$eg: (ab[cDcba)tTtabcDc]F$,这个串里面$T$为$C$，$L$和$R$用中括号表示,$i’$为左边的$D$,$i$为右边的$D$，$i’$扩出来的范围用圆括号表示出来,$i$的回文半径和$i’$的一样。</p>
 <ul>
-<li>证明: 首先$L$关于$i’$做个对称$L’$，$R$关于$i$做个对称$R’$,自然可得知$&lt;L…L’&gt;$和$<r'...r>$这两段一定是回文（这两段一定是逆序的关系，同时$<l...l'>$又在$&lt;l…r&gt;$之间，所以它又是一个回文），然后假设$R$的下一个字母是$X$，$R’$的前一个字母是$Y$，那$L’$的下一个字母就是关于$C$对称点$Y’$，,$L$的上一个字母就是$X$关于$C$的对称点$X’$,由于当时大回文没有扩出去$\Rightarrow$$X  != X’,  X’ = Y’$(在$i’$的回文区域内)，又因为$Y=Y’$，所以$X != Y$,于是就扩不动了$\Rightarrow$证毕。</l...l'></r'...r></li>
+<li>证明: 首先$L$关于$i’$做个对称$L’$，$R$关于$i$做个对称$R’$,自然可得知$&lt;L…L’&gt;$和$<r'...r>$这两段一定是回文（这两段一定是逆序的关系，同时$<l...l'>$又在$&lt;l…r&gt;$之间，所以它又是一个回文），然后假设$R$的下一个字母是$X$，$R’$的前一个字母是$Y$，那$L’$的下一个字母就是关于$C$对称点$Y’$，,$L$的上一个字母就是$X$关于$C$的对称点$X’$,由于当时大回文没有扩出去$\Rightarrow$$X!= X’,X’=Y’$(在$i’$的回文区域内)，又因为$Y=Y’$，所以$X != Y$,于是就扩不动了$\Rightarrow$证毕。</l...l'></r'...r></li>
 </ul>
 </li>
 <li><p>情况三：$i’$的回文半径刚好和$L$压线(重叠)，$eg: T[(abCba)kKkabCba]K$这种情况，左边的第一个C为$i’$，这种情况下，$i$到$R$这段肯定不用验证的，当然能不能更大，没人知道，还是要扩，如果最后一个位置是K的话，就可以扩，如果是个别的，比如S之类的，就没法扩了。</p>
@@ -628,7 +628,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/15/kmp-2018-11-15/" rel="next" title="KMP算法详解">
+              <a href="/2018/11/15/2018-11-15-kmp/" rel="next" title="KMP算法详解">
                 <i class="fa fa-chevron-left"></i> KMP算法详解
               </a>
             
