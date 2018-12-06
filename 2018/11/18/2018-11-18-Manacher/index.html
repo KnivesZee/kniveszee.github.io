@@ -134,18 +134,18 @@
 
 
 
-<meta name="description" content="一、插入排序的分析算法分析的结果意味着预测算法需要的资源。在能够分析一个算法之前，我们必须要有一个要使用的实现技术的模型，包括描述所用资源及其代价的模型。一般来说，都使用随机访问机（random-access machine, RAM）来作为我们的实现技术，算法可以用计算机程序来实现。在RAM模型中，指令一条接一条的执行，没有并发操作。在RAM模型中，我们不对高速缓存&amp;amp;虚拟内存进行建模，在">
+<meta name="description" content="1. 问题描述Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的） $eg: 121,  1221$ $121$的最大回文字串即$12$，$1221$的最大回文子串为$12$ 2. 暴力解法2.1 解决思路这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。 这里首先">
 <meta name="keywords" content="alogrithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法分析基础">
-<meta property="og:url" content="http://knivezee.site/2018/05/15/2018-05-15-alogthrin-analise/index.html">
+<meta property="og:title" content="Manacher">
+<meta property="og:url" content="http://knivezee.site/2018/11/18/2018-11-18-Manacher/index.html">
 <meta property="og:site_name" content="拾碎集">
-<meta property="og:description" content="一、插入排序的分析算法分析的结果意味着预测算法需要的资源。在能够分析一个算法之前，我们必须要有一个要使用的实现技术的模型，包括描述所用资源及其代价的模型。一般来说，都使用随机访问机（random-access machine, RAM）来作为我们的实现技术，算法可以用计算机程序来实现。在RAM模型中，指令一条接一条的执行，没有并发操作。在RAM模型中，我们不对高速缓存&amp;amp;虚拟内存进行建模，在">
+<meta property="og:description" content="1. 问题描述Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的） $eg: 121,  1221$ $121$的最大回文字串即$12$，$1221$的最大回文子串为$12$ 2. 暴力解法2.1 解决思路这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。 这里首先">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-03T08:04:35.486Z">
+<meta property="og:updated_time" content="2018-12-06T03:17:07.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法分析基础">
-<meta name="twitter:description" content="一、插入排序的分析算法分析的结果意味着预测算法需要的资源。在能够分析一个算法之前，我们必须要有一个要使用的实现技术的模型，包括描述所用资源及其代价的模型。一般来说，都使用随机访问机（random-access machine, RAM）来作为我们的实现技术，算法可以用计算机程序来实现。在RAM模型中，指令一条接一条的执行，没有并发操作。在RAM模型中，我们不对高速缓存&amp;amp;虚拟内存进行建模，在">
+<meta name="twitter:title" content="Manacher">
+<meta name="twitter:description" content="1. 问题描述Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的） $eg: 121,  1221$ $121$的最大回文字串即$12$，$1221$的最大回文子串为$12$ 2. 暴力解法2.1 解决思路这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。 这里首先">
 
 
 
@@ -175,13 +175,13 @@
 
 
 
-  <link rel="canonical" href="http://knivezee.site/2018/05/15/2018-05-15-alogthrin-analise/">
+  <link rel="canonical" href="http://knivezee.site/2018/11/18/2018-11-18-Manacher/">
 
 
 
 
 
-  <title>算法分析基础 | 拾碎集</title>
+  <title>Manacher | 拾碎集</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://knivezee.site/2018/05/15/2018-05-15-alogthrin-analise/">
+    <link itemprop="mainEntityOfPage" href="http://knivezee.site/2018/11/18/2018-11-18-Manacher/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Knives">
@@ -353,7 +353,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">算法分析基础</h2>
+          <h2 class="post-title" itemprop="name headline">Manacher</h2>
         
 
         <div class="post-meta">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-15T22:57:11+08:00">
-                2018-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T21:16:12+08:00">
+                2018-11-18
               </time>
             
 
@@ -381,8 +381,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-03T16:04:35+08:00">
-                2018-12-03
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-06T11:17:07+08:00">
+                2018-12-06
               </time>
             
           </span>
@@ -395,7 +395,7 @@
 
           
           
-             <span id="/2018/05/15/2018-05-15-alogthrin-analise/" class="leancloud_visitors" data-flag-title="算法分析基础">
+             <span id="/2018/11/18/2018-11-18-Manacher/" class="leancloud_visitors" data-flag-title="Manacher">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1,738
+                  3,020
                 </span>
               
 
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  7
+                  12
                 </span>
               
             </div>
@@ -457,20 +457,91 @@
       
 
       
-        <h2 id="一、插入排序的分析"><a href="#一、插入排序的分析" class="headerlink" title="一、插入排序的分析"></a>一、插入排序的分析</h2><p>算法分析的结果意味着预测算法需要的资源。在能够分析一个算法之前，我们必须要有一个要使用的实现技术的模型，包括描述所用资源及其代价的模型。一般来说，都使用随机访问机（random-access machine, RAM）来作为我们的实现技术，算法可以用计算机程序来实现。在RAM模型中，指令一条接一条的执行，没有并发操作。<br>在RAM模型中，我们不对高速缓存&amp;虚拟内存进行建模，在表明算法资源需求的情况下，同时能够抑制乏味的细节。<br>一般来说，算法需要的时间与输入的规模同步增长，比如：过程INSERTION-SORT需要的时间依赖于输入，显然排序1000个数字比排序3个数字需要更长的时间。</p>
-<h3 id="1-1-输入规模"><a href="#1-1-输入规模" class="headerlink" title="1.1 输入规模"></a>1.1 输入规模</h3><p>输入规模的最佳概念依赖于研究的问题，如排序问题中待排序数组的规模n。有时，也存在用两个数而不是一个数来描述问题规模的情况，如某个算法输入的是一个图$G=(V,E)$，则其输入规模可以用该图中的定点数和边数来描述。对于每个问题，我们将指出所使用的输入规模量度。</p>
-<h3 id="1-2运行时间"><a href="#1-2运行时间" class="headerlink" title="1.2运行时间"></a>1.2运行时间</h3><p>一个算法在特定输入下的运行时间是指执行的基本操作数或者步数。定义“步”的概念以便尽量独立于机器是方便的。目前我们采用一下的约定，执行每行伪代码需要常量时间。虽然每行需要的时间可能会存在不同，但我们假定第$i$行的每次执行需要时间$c_i$，其中$c_i$是一个常量。<br>下面我们给出插入排序的伪代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSERTION-SORT(A)</span><br><span class="line">$<span class="number">1</span> <span class="keyword">for</span> j=<span class="number">2</span> to A.length</span><br><span class="line">$<span class="number">2</span>   key = A[j]</span><br><span class="line">$<span class="number">3</span>   <span class="comment">// insert A[j] into the sorted sequence A[1..j-1] </span></span><br><span class="line">$<span class="number">4</span>   i = j - <span class="number">1</span></span><br><span class="line">$<span class="number">5</span>   <span class="keyword">while</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> A[i] &gt; key</span><br><span class="line">$<span class="number">6</span>     A[i+<span class="number">1</span>] = A[i]</span><br><span class="line">$<span class="number">7</span>     i = i - <span class="number">1</span></span><br><span class="line">$<span class="number">8</span>   A[i+<span class="number">1</span>] = key</span><br></pre></td></tr></table></figure></p>
-<p>假定注释不执行，因此它不需要时间。假定每行的执行时间（执行代价）为$c_i$。对 $j=2,3,…,n$，其中$n=A.length$，假设$t_j$表示那个值$j$第5行执行while循环测试的次数。当一个循环按照通常的方式退出时，执行测试的次数比执行循环体的次数多一。<br>因此该算法的运行时间总和为：<br>$$<br>T(n)=c_1n+c_2(n-1)+c_4(n-1)+c_5\sum_{j=2}^{n}t_j+c_6\sum_{j=2}^{n}(t_j-1)+c_7\sum_{j=2}^{n}(t_j-1)+c_8(n-1)<br>$$<br>在INSETION-SORT中，若输入数组已经排好序，则会出现最佳情况。我们发现这种情况下第5行中的$t_j=1$，该最佳情况的运行时间为：<br>$$<br>T(n)=c_1n+c_2(n-1)+c_4(n-1)+c_5(n-1)+c_8(n-1)\<br> =(c_1+c_2+c_4+c_5+c_8)n - (c_2+c_4+c_5+c_8)<br>$$<br>我们可以把该运行时间表示为$an+b$，其中常量$a,b$依赖于语句代价$c_i$。因此它是n的<strong>线性函数</strong>。<br>这里我们再考虑另一种情况，若输入的数组已反向排序，即按照递减排好序，导致最坏的情况发生。我们必须把每个元素$A[j]$与整个已排好序的子数组$A[1..j-1]$中的每个元素进行比较。所以对$j=2,3,…,n$，有$t_j=j$。这里：<br>$$<br>\sum_{j=2}^{n}j=\frac{n(n+1)}{2}-1<br>$$<br>和<br>$$<br>\sum_{j=2}^{n}(j-1)=\frac{n(n-1)}{2}<br>$$<br>我们发现最坏的情况下，INSETINO-SORT的运行时间为：<br>$$<br>T(n)=(\frac{c_5}{2}+\frac{c_6}{2}+\frac{7}{2})n^2+(c_1+c_2+c_4+\frac{c_5}{2}-\frac{c_6}{2}-\frac{c_7}{2}+c_8)n-(c_2+c_4+c_5+c_6)<br>$$<br>此处，我们可以把最坏情况的运行时间表示为$an^2+bn+c$，其中常量$a,b,c$又依赖于代价$c_i$。因此，它是$n$的二次函数。<br>因此我们可以说插入排序运行时间为$\Theta(n^2)$。</p>
-<h3 id="1-3-最坏情况与平均情况的分析"><a href="#1-3-最坏情况与平均情况的分析" class="headerlink" title="1.3 最坏情况与平均情况的分析"></a>1.3 最坏情况与平均情况的分析</h3><p>在分析插入排序时，从最佳情况以及最差情况进行分析，但是往往我们关注的只是求<strong>最坏情况的运行时间</strong>，理由如下：</p>
+        <h3 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h3><p>Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的）</p>
+<p>$eg: 121,  1221$</p>
+<p>$121$的最大回文字串即$12$，$1221$的最大回文子串为$12$</p>
+<h3 id="2-暴力解法"><a href="#2-暴力解法" class="headerlink" title="2. 暴力解法"></a>2. 暴力解法</h3><h4 id="2-1-解决思路"><a href="#2-1-解决思路" class="headerlink" title="2.1 解决思路"></a>2.1 解决思路</h4><p>这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。</p>
+<p>这里首先约定一下,下面凡是遇到$(a,b)$这种形式的，都表示以$a$为中心向两边扩能够扩的最大回文串的长度为$b$。</p>
+<p>但是这种解法会出现一个问题：</p>
+<ul>
+<li>比如$12321$这种<strong>奇回文</strong>，从左到右扩出的结果依次为$(1,1)$$(2,1)$$(3,5)$$(2,1)$$(1,1)$</li>
+<li>但是遇到$1221$这种<strong>偶回文</strong>会遇到问题，从左到右扩出结果依次为$(1,1)$$(2,1)$$(2,1)$$(1,2)$,但实际上这个串的最大回文长度为4</li>
+</ul>
+<p>因此，暴力解法也需要特殊的技巧————<strong>向字符串的开头和中间加特殊字符</strong>。</p>
+<ul>
+<li>eg:  对$11311$， 此时如何处理，将字符串处理为#1#1#3#1#1#,从左往右依次扩张的最大回文长度写在list中即为$ [1,3,5,3,1,11,1,3,5,3,1]$，则最大回文长度为$11/2=5$。</li>
+</ul>
+<p>使用上述添加字符的方法无论奇和偶都可以找到答案，并且中间加的字符，可以加任意字符，因为两个位置比较时候，<strong>虚轴</strong>和<strong>实轴</strong>是永远不可能碰到的（数字永远和数字比较，#永远和#比较），所以加什么都可以，因为加的东西只是起到一个占位的作用而已。</p>
+<h4 id="2-2-时间复杂度"><a href="#2-2-时间复杂度" class="headerlink" title="2.2 时间复杂度"></a>2.2 时间复杂度</h4><p>暴力解法最差情况时，对于每个字符都需要扩到越界，相当于要扩整个字符串，即它是$O(n^2)$的</p>
+<h3 id="3-Manacher算法基础概念"><a href="#3-Manacher算法基础概念" class="headerlink" title="3. Manacher算法基础概念"></a>3. Manacher算法基础概念</h3><p>首先想说的就是大神脑回路异常，再次膜拜大神。下面介绍一下Manacher算法的基本概念：</p>
+<h4 id="3-1-回文直径："><a href="#3-1-回文直径：" class="headerlink" title="3.1 回文直径："></a>3.1 回文直径：</h4><p>以一个位置为中心，扩到的串的长度</p>
+<h4 id="3-2-回文半径-r-："><a href="#3-2-回文半径-r-：" class="headerlink" title="3.2 回文半径$r$："></a>3.2 回文半径$r$：</h4><p>以一个位置为中心，扩到的串的一半的长度</p>
+<h4 id="3-3-回文半径数组"><a href="#3-3-回文半径数组" class="headerlink" title="3.3 回文半径数组"></a>3.3 回文半径数组</h4><p>以每个位置为中心能够扩出来的回文半径的长度记在这个数组里面</p>
+<p>我们看看后面的过程能不能利用前面的过程进行加速,过程很直白，就是加速的过程很炫酷</p>
+<h4 id="3-4-最右回文右边界-R"><a href="#3-4-最右回文右边界-R" class="headerlink" title="3.4 最右回文右边界$R$"></a>3.4 最右回文右边界$R$</h4><p>所有回文半径中最靠右的位置</p>
+<p>$eg: @1@2@1@…$</p>
+<p>这个串的$R$最终在位置6这个$@$的位置（将之看作C中的数组，起始位置为0开始算）</p>
+<p>并且我们约定最最开始的时候$R$在$-1$这个位置上（虽然实际中并不存在$-1$这个位置）</p>
+<h4 id="3-5-回文右边界的中心-C"><a href="#3-5-回文右边界的中心-C" class="headerlink" title="3.5 回文右边界的中心$C$"></a>3.5 回文右边界的中心$C$</h4><p>取得最右边界的的中心，只要没有推到更往右，就记录下当前回文右边界最早的中心在哪</p>
+<h3 id="4-Manacher算法流程"><a href="#4-Manacher算法流程" class="headerlink" title="4. Manacher算法流程"></a>4. Manacher算法流程</h3><h4 id="4-1-Manacher算法是如何加速的"><a href="#4-1-Manacher算法是如何加速的" class="headerlink" title="4.1 Manacher算法是如何加速的"></a>4.1 Manacher算法是如何加速的</h4><p>假设当前来到了字符串的$i$位置，有两种大的可能性:</p>
+<ul>
+<li>位置$i$不在$R$里面</li>
+<li>位置$i$在$R$里面</li>
+</ul>
+<p>对于位置$i$不在回文右边界里面的情况时，直接暴力扩（因为$i$和右边界没什么关系，在右边界之外，暴力扩）。读到这里你可能会困惑，为什么会有这种种$i$在$R$的外部的情况，举个例子：假如你当前的$C$和$R$重叠呢？即$C$扩出去的范围只有1，即自身，那么下一个$i$是不是就在R外边了呢？ ：)</p>
+<p>对于位置$i$在回文右边界里面的情况时，进行分类讨论。</p>
+<p><strong>注意：我们下面用的所有的例子默认都是加了#处理的字符串，只是为了方便写，而把它们省略掉了</strong></p>
+<p>假设回文右边界为$R$，中心为$C$，回文左边界为$L$。我们就可知道$i$在$R$内的情况为$&lt;L…C…i…R&gt;$这种情况（尖括号延伸了一下序偶的概念，这里我就是代表这些字符有前后顺序的关系），此时为什么$C$在$i$的左边呢?</p>
+<p>$pf:$</p>
+<p>因为$i$在$R$内，当我门计算到$i$的时候，还没有计算出它的回文半径，此时包括$C$之前的所有位置的$r$都已计算，那么$C$一定是在$i$的左边，并且显而易见的，$R$又是怎么达到当前的位置呢？肯定是之前的某一个$C$让它到这儿的，所以$C$一定是在$i$左边的，证毕。</p>
+<p>此时我们再在$&lt;L…C…i…R&gt;$中关于$C$做一个$i$的对称点$i’$，即$&lt;L…i’…C…i…R&gt;$，此时$r(i’)$就可以告诉我们$i‘$的回文区域是在哪一段？下面我们来分别的讨论一下$r(i’)$的范围：</p>
+<ul>
+<li><p>情况一：$i’$的回文区域，彻底的在L和R之间，这种情况下，i位置的回文区域不用扩，多远呢？一定和i’一样。$eg：Z(KaBatFtaBaK)Y$,这个串中$F$是$C$，括号分别代表左右边界，假设求的$i$位置为右边的$B$，$i’$则为左边的B，$i’$的回文区域是$aBa$，则$i$的回文区域也是$aBa$</p>
+<ul>
+<li>证明： 字符串为$&lt;L, i’，C, i, R&gt;$ ，假设当时$i’$扩的区域为$&lt;l…i’…r&gt;$,则对应的$i$的回文区域为$<r'...i...l'>$,即原字符串处理为$&lt;L…l…i’…r…C…r’…i…l’…R&gt;$。首先证明$<r'...l'>$中间这一段是回文：因为$&lt;l,r&gt;$为已经求得的回文，而$&lt;L…R&gt;$整体都是回文，所以$<r'...l'>$为$&lt;l…r&gt;$的逆序,因此$<r'...l'>$是回文得证。然后证明它不可能扩地更大了，假设$&lt;L…Yl…i’…rX…C…X’r’…i…l’Y’… R&gt;$中存在这样紧邻$i$，$i’$回文区域的字符，由于当时$l$,$r$没有继续扩则$Y！=X,X = X’,Y = Y’,X’!=Y’$$\Rightarrow$$<r'...l'>$不可能扩的更大$\Rightarrow$证毕。</r'...l'></r'...l'></r'...l'></r'...l'></r'...i...l'></li>
+</ul>
+</li>
+<li><p>情况二：$i’$的回文范围在以$C$为中心的回文半径之外 $&lt;l…L…i’…r…C…i…R&gt;$，这种情况下，$i$的回文半径情况就是i到R的长度。$eg: (ab[cDcba)tTtabcDc]F$,这个串里面$T$为$C$，$L$和$R$用中括号表示,$i’$为左边的$D$,$i$为右边的$D$，$i’$扩出来的范围用圆括号表示出来,$i$的回文半径和$i’$的一样。</p>
+<ul>
+<li>证明: 首先$L$关于$i’$做个对称$L’$，$R$关于$i$做个对称$R’$,自然可得知$&lt;L…L’&gt;$和$<r'...r>$这两段一定是回文（这两段一定是逆序的关系，同时$<l...l'>$又在$&lt;l…r&gt;$之间，所以它又是一个回文），然后假设$R$的下一个字母是$X$，$R’$的前一个字母是$Y$，那$L’$的下一个字母就是关于$C$对称点$Y’$，,$L$的上一个字母就是$X$关于$C$的对称点$X’$,由于当时大回文没有扩出去$\Rightarrow$$X  != X’,  X’ = Y’$(在$i’$的回文区域内)，又因为$Y=Y’$，所以$X != Y$,于是就扩不动了$\Rightarrow$证毕。</l...l'></r'...r></li>
+</ul>
+</li>
+<li><p>情况三：$i’$的回文半径刚好和$L$压线(重叠)，$eg: T[(abCba)kKkabCba]K$这种情况，左边的第一个C为$i’$，这种情况下，$i$到$R$这段肯定不用验证的，当然能不能更大，没人知道，还是要扩，如果最后一个位置是K的话，就可以扩，如果是个别的，比如S之类的，就没法扩了。</p>
+</li>
+</ul>
+<p>因此，总结来看，分2大类情况，第一类是$i$的位置在$R$的外部，这个时候只有暴力扩，第二大类是$i$的位置在$R$的内部，这里面也分了3种可能性，第一种是i’的回文半径在L,R内，第二种是i’的回文半径在LR外，第三种是i’的回文半径刚好和L压线，这里面第一种，第二种都可以在O(1)时间内搞定，在下面进行分析</p>
+<h4 id="4-2-复杂度分析"><a href="#4-2-复杂度分析" class="headerlink" title="4.2 复杂度分析"></a>4.2 复杂度分析</h4><p>首先我们看看所有的可能性：</p>
+<ul>
+<li>一、$i$在$R$外：暴力找</li>
+<li>二、$i$在$R$内：<ul>
+<li>$i’$回文在$[L,R]$$\Rightarrow$$O(1)$</li>
+<li>$i’$回文在$[L,R]$外$\Rightarrow$$O(1)$</li>
+<li>$i’$回文左边界与L压线：从R的右边开始扩</li>
+</ul>
+</li>
+</ul>
+<p>由于$R$这个东西，只往右推而不往左缩，首先$i$在$R$外的时候，此时一定是暴力扩，没问题，但是只要扩成功了，$R$一定在增大;第二大类的第三种可能性，从$R$的右边开始再往右扩，如果失败了，一下就停了，如果没失败，$R$也是再增加。所以不管是几个位置，只要成功的扩了，$R$都必然会增加，$R$最多也就是从最左推到最右，所以第一种和最后一种可能性即使发生了，整体的时间复杂度都不会高于$R$的变化范围。因为这两种方式都是在把R推高，而且R是不回落的，所以这两种整体的代价就是$R$最多能变多大嘛，所以整个Manacher算法的时间复杂度就是O(n)。</p>
+<h4 id="4-3-Code"><a href="#4-3-Code" class="headerlink" title="4.3 Code"></a>4.3 Code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxLcpsLength</span><span class="params">(str)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">if</span> str </span>== <span class="literal">NULL</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	pArr = []</span><br><span class="line">	str = handleString(str)</span><br><span class="line">	C = <span class="number">-1</span></span><br><span class="line">	R = <span class="number">-1</span></span><br><span class="line">	theMax = INT_MIN</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span> to i = len(str)</span><br><span class="line">		pArr[i] = R &gt; i ? min(pArr[ <span class="number">2</span> * C - i], R - i) : <span class="number">1</span></span><br><span class="line">		<span class="keyword">while</span> i + pArr[i] &lt; len(str) &amp;&amp; i - pArr[i] &gt; <span class="number">-1</span></span><br><span class="line">			<span class="keyword">if</span> str[i + pArr[i]] == charArr[i - pArr[i]]</span><br><span class="line">				pArr[i]++</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">if</span> i + pArr[i] &gt; R    <span class="comment">//更新全局的R和C</span></span><br><span class="line">			R = i + pArr[i]</span><br><span class="line">			C = i</span><br><span class="line">		theMax = max(theMax, pArr[i])</span><br><span class="line">	<span class="keyword">return</span> theMax - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>注：</p>
 <ol>
-<li>一个算法的最坏运行时间给出了一个运行时间的上界。</li>
-<li>对于某些算法，最坏情况经常出现，如数据库检索。</li>
-<li>“平均情况”往往与最坏情况大致一样差。</li>
+<li>pArr为回文半径数组</li>
+<li>pArr[2*C - i]为$i’$的回文半径，情况2.1和2.2两种情况的汇总，若$R&lt;=i$时，不用扩的区域就一个（自己），此句为起码不用验证的区域</li>
+<li>这个代码没有分上面的4种情况，做法是先找到一个起码不用验证的区域，然后还是扩一下，对于$O(1)$就出结论的情况，扩一下就会失败</li>
+<li>传入的str需要handleString处理一下，加#或任何你想加的字符，如下：</li>
 </ol>
-<h3 id="1-4-增长量级"><a href="#1-4-增长量级" class="headerlink" title="1.4 增长量级"></a>1.4 增长量级</h3><p>在上述分析插入排序的基础上，我们还可以再做一种更加简化的抽象：即我们真正感兴趣的是运行时间的<strong>增长量级</strong>。因此我们只需要考虑公式中最重要的项$an^2$。<br>若一个算法的最坏情况的运行时间比另一个算法有更低额增长量级，那么我们认为前者比后者更加有效。<br>对于为什么可以直接舍去低阶项，在下面有给出具体解释。</p>
-<h2 id="二、渐进记号"><a href="#二、渐进记号" class="headerlink" title="二、渐进记号"></a>二、渐进记号</h2><p>这里将介绍一些基本的渐进记号，并且简要的介绍一下他们的用法</p>
-<h3 id="2-1-渐进记号、函数与运行时间"><a href="#2-1-渐进记号、函数与运行时间" class="headerlink" title="2.1 渐进记号、函数与运行时间"></a>2.1 渐进记号、函数与运行时间</h3><p>在上方，我们曾把插入排序的最坏情况运行时间刻画为$an^2+bn+c$，我们通过把插入排序的运行时间写为$\Theta(n^2)$，我们除去了该函数的某些细节。因为渐进记号适用于函数，我们所写成的$\Theta(n^2)$就是函数$an^2+bn+c$，所以上述情况碰巧刻画了插入排序的最坏情况的运行时间。<br>通常我们都使用渐进记号的函数来刻画算法的运行时间。但是渐进记号也可以适用于刻画空间复杂度等。下面我将介绍几个常用的渐进记号。</p>
-<h3 id="Theta-记号"><a href="#Theta-记号" class="headerlink" title="$\Theta$记号"></a>$\Theta$记号</h3><p>对一个给定的函数$g(n)$，用$\Theta(g(n))$来表示以下函数的集合（集合记号中，冒号意指“使得”）：<br>$$<br>\Theta(g(n))=\lbrace f(n):\exists c_1,c_2,c_3 \in Z^+,对\forall n \geqslant n_0,有0\leqslant c_1g(n) \leqslant f(n) \leqslant c_2g(n)  \rbrace<br>$$<br>上述公式可以这样理解：若存在正常量$c_1,c_2$，使得对于足够大的$n$，函数$f(n)$能够<strong>夹入</strong>$c_1g(n)$和$c_2g(n)$之间，则$f(n)$属于集合$\Theta(g(n))$。因为$\Theta(g(n))$是一个集合，所以可以记作“$f(n) \in \Theta(g(n))$”，作为替代，我们通常记“$f(n) = \Theta(g(n))$”以表相同的概念。<br>换句话说对于所有的$n \geqslant n_0$，函数$f(n)$在一个常量因子内等于$g(n)$。我们称$g(n)$是$f(n)$的一个<strong>渐进紧确界</strong>（asymptotically tigth bound）。<br>$\Theta(g(n))$的定义要求每个成员都<strong>渐进非负</strong>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>[] handleString(str)</span><br><span class="line">	res = res[len(str) * <span class="number">2</span> + <span class="number">1</span>]</span><br><span class="line">	index = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span> to len(res)</span><br><span class="line">		res[i] = (i % <span class="number">1</span>) == <span class="number">0</span> ? <span class="string">'#'</span> : str[index++]</span><br><span class="line">	<span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-总结"><a href="#4-4-总结" class="headerlink" title="4.4 总结"></a>4.4 总结</h4><p>Manacher算法种有很多扣边界的细节，比如求i的对称点，保证字符串不越界，以及比较哪两个位置，回文右边界R怎么更新，全局最大值等很多细节的问题。整个过程没太大难度，但是需要比较细心。</p>
+<h3 id="5-延伸题目"><a href="#5-延伸题目" class="headerlink" title="5. 延伸题目"></a>5. 延伸题目</h3><p>在一个字符串种，只能向后面添加字符，怎么让整个串变成回文串，并且让整个字符最短</p>
+<p>eg: abc12321 这个串就应该加上cba</p>
+<p>解法思路：Manacher算法在计算到$R$第一次到达最右边的时候就停止，这时$L$， $C$,$R$都有了，把前面不是的位置逆序放到后面即可</p>
+<p>只需要将前面的代码修改一下在大的for循环中加入:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> R == len(str)</span><br><span class="line">	maxContainsEnd = pArr[i]</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<p>这里maxContainsEnd记录的是此时的回文半径，然后再扣边界，连接剩下的字符串即可</p>
+<h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h3><p>前面的证明由于Markdown本身画图的限制，所以都以数学符号的形式呈现，其实本身过程通过画图的话时比较容易理解的。</p>
+<p>再好的算法也要自己实现，上面的代码都是以伪代码的形式给出，具体实现之后将在我的GitHub中陆续上传。</p>
+<blockquote>
+<p>Written with <a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a>. 2018.11.18</p>
+</blockquote>
 
       
     </div>
@@ -501,11 +572,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/05/15/2018-05-15-alogthrin-analise/">算法分析基础</a></p>
+  <p><span>本文标题:</span><a href="/2018/11/18/2018-11-18-Manacher/">Manacher</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Knives 的个人博客">Knives</a></p>
-  <p><span>发布时间:</span>2018年05月15日 - 22:05</p>
-  <p><span>原始链接:</span><a href="/2018/05/15/2018-05-15-alogthrin-analise/" title="算法分析基础">http://knivezee.site/2018/05/15/2018-05-15-alogthrin-analise/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://knivezee.site/2018/05/15/2018-05-15-alogthrin-analise/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年11月18日 - 21:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/18/2018-11-18-Manacher/" title="Manacher">http://knivezee.site/2018/11/18/2018-11-18-Manacher/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://knivezee.site/2018/11/18/2018-11-18-Manacher/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -557,8 +628,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/18/2017-12-18-matrix-yingyong/" rel="next" title="矩阵理论在深度学习中的应用即主成分分析">
-                <i class="fa fa-chevron-left"></i> 矩阵理论在深度学习中的应用即主成分分析
+              <a href="/2018/11/15/kmp-2018-11-15/" rel="next" title="KMP算法详解">
+                <i class="fa fa-chevron-left"></i> KMP算法详解
               </a>
             
           </div>
@@ -566,10 +637,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/20/2018-07-20-rubyLearnNote/" rel="prev" title="Ruby Learning">
-                Ruby Learning <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -753,7 +820,7 @@ var ap = new APlayer({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、插入排序的分析"><span class="nav-number">1.</span> <span class="nav-text">一、插入排序的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-输入规模"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 输入规模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2运行时间"><span class="nav-number">1.2.</span> <span class="nav-text">1.2运行时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-最坏情况与平均情况的分析"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 最坏情况与平均情况的分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-增长量级"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 增长量级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、渐进记号"><span class="nav-number">2.</span> <span class="nav-text">二、渐进记号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-渐进记号、函数与运行时间"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 渐进记号、函数与运行时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theta-记号"><span class="nav-number">2.2.</span> <span class="nav-text">$\Theta$记号</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-问题描述"><span class="nav-number">1.</span> <span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-暴力解法"><span class="nav-number">2.</span> <span class="nav-text">2. 暴力解法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-解决思路"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 解决思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-时间复杂度"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Manacher算法基础概念"><span class="nav-number">3.</span> <span class="nav-text">3. Manacher算法基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-回文直径："><span class="nav-number">3.1.</span> <span class="nav-text">3.1 回文直径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-回文半径-r-："><span class="nav-number">3.2.</span> <span class="nav-text">3.2 回文半径$r$：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-回文半径数组"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 回文半径数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-最右回文右边界-R"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 最右回文右边界$R$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-回文右边界的中心-C"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 回文右边界的中心$C$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Manacher算法流程"><span class="nav-number">4.</span> <span class="nav-text">4. Manacher算法流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-Manacher算法是如何加速的"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 Manacher算法是如何加速的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-复杂度分析"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 复杂度分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-Code"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-总结"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-延伸题目"><span class="nav-number">5.</span> <span class="nav-text">5. 延伸题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-总结"><span class="nav-number">6.</span> <span class="nav-text">6. 总结</span></a></li></ol></div>
             
 
           </div>
