@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="拾碎集">
 <meta property="og:description" content="今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？ 1. 原始问题返回$str_1$中是否存在子串$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1  注意子串和子序列的区别：子串是连续的，而子序列不一定连续  tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-27T03:01:17.869Z">
+<meta property="og:updated_time" content="2018-12-27T03:03:22.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP算法详解">
 <meta name="twitter:description" content="今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？ 1. 原始问题返回$str_1$中是否存在子串$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1  注意子串和子序列的区别：子串是连续的，而子序列不一定连续  tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。">
@@ -381,7 +381,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-27T11:01:17+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-27T11:03:22+08:00">
                 2018-12-27
               </time>
             
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2,733
+                  2,735
                 </span>
               
 
@@ -527,9 +527,11 @@
 <p>这种情况前缀为$abab$, 此时 $c!=a$，$c$前面的字符串为$abab$,匹配的最大前缀为$ab$,此时$a = a$（i位置上的，出现了匹配），则最大前缀长度就等于$c$前面的最大匹配2（next[4]=2）再加上1为3，除此之外不存在更长的了</p>
 <h4 id="3-8-next-code"><a href="#3-8-next-code" class="headerlink" title="3.8 next code"></a>3.8 next code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] getNext(str_2)</span><br><span class="line">	<span class="function"><span class="keyword">if</span> <span class="title">len</span><span class="params">(str_2)</span> </span>== <span class="number">1</span></span><br><span class="line">		<span class="keyword">return</span> [<span class="number">-1</span>]</span><br><span class="line">	next[<span class="number">0</span>] = <span class="number">-1</span></span><br><span class="line">	next[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">	i = <span class="number">2</span>  </span><br><span class="line">	cn = <span class="number">0</span>  <span class="comment">// 跳到的位置</span></span><br><span class="line">	<span class="keyword">while</span> i &lt; len(str_2)</span><br><span class="line">		<span class="keyword">if</span> str_2[i<span class="number">-1</span>] == str_2[cn]  <span class="comment">// 前一个字符 == 当前跳到位置的字符</span></span><br><span class="line">			next[i++] = ++cn      <span class="comment">// 跳到位置（跳到cn,则前面的字符串的长度为cn）,这里要注意++的前后关系</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> cn &gt; <span class="number">0</span>			  <span class="comment">// cn往前跳（我还可以往前跳）</span></span><br><span class="line">			cn = next[cn]</span><br><span class="line">		<span class="keyword">else</span>					  <span class="comment">// 跳无可跳</span></span><br><span class="line">			next[i++] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p>这里需要注意到的点就是：</p>
-<pre><code>- cn的实质其实是next[i-1]，最开始初始化的值为0
-- 当str_2[i-1] == str_2[cn]的时候，这个时候需如果要使用++运算符，则需先将cn加一，再赋值。这个情况下，cn就变成了next[i]位置的值，那么相对于下一个str[i+1]来说，需要对比的就是str[(i+1)-1]和str[next(i+1-1)]即str[cn]
-</code></pre><h3 id="4-KMP的应用"><a href="#4-KMP的应用" class="headerlink" title="4. KMP的应用"></a>4. KMP的应用</h3><h4 id="4-1-question1"><a href="#4-1-question1" class="headerlink" title="4.1 question1"></a>4.1 question1</h4><p>假设原始串为$abcabc$，请你生成一个大字符串，只能在原串后面添加，要求此大串的长度是最短的，此大串包含2个原始串，而且开头的位置还要不一样</p>
+<ol>
+<li>cn的实质其实是next[i-1]，最开始初始化的值为0</li>
+<li>当str_2[i-1] == str_2[cn]的时候，这个时候需如果要使用++运算符，则需先将cn加一，再赋值。这个情况下，cn就变成了next[i]位置的值，那么相对于下一个str[i+1]来说，需要对比的就是str[(i+1)-1]和str[next(i+1-1)]即str[cn]</li>
+</ol>
+<h3 id="4-KMP的应用"><a href="#4-KMP的应用" class="headerlink" title="4. KMP的应用"></a>4. KMP的应用</h3><h4 id="4-1-question1"><a href="#4-1-question1" class="headerlink" title="4.1 question1"></a>4.1 question1</h4><p>假设原始串为$abcabc$，请你生成一个大字符串，只能在原串后面添加，要求此大串的长度是最短的，此大串包含2个原始串，而且开头的位置还要不一样</p>
 <p>$eg: abcabc$</p>
 <p>结果为：abcabcabc，添加了一个abc</p>
 <p>$eg: abcabc$</p>
