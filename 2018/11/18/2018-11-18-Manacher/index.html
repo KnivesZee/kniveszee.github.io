@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="拾碎集">
 <meta property="og:description" content="1. 问题描述Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的） $eg: 121,  1221$ $121$的最大回文字串即$12$，$1221$的最大回文子串为$12$ 2. 暴力解法2.1 解决思路这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。 这里首先">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-06T06:57:24.806Z">
+<meta property="og:updated_time" content="2018-12-27T09:08:57.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Manacher">
 <meta name="twitter:description" content="1. 问题描述Manacher——马拉车算法: )讲的也是子串的问题，不过是在一个字符串中找到最大回文子串（正着反着都一样的） $eg: 121,  1221$ $121$的最大回文字串即$12$，$1221$的最大回文子串为$12$ 2. 暴力解法2.1 解决思路这个题使用暴力解法不好求解，因为要处理长度为奇数或者长度为偶数的回文，思路即：从$i$位置作为中心往两边扩张，逐个对比即可。 这里首先">
@@ -381,8 +381,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-06T14:57:24+08:00">
-                2018-12-06
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-27T17:08:57+08:00">
+                2018-12-27
               </time>
             
           </span>
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3,020
+                  3,018
                 </span>
               
 
@@ -503,7 +503,7 @@
 </li>
 <li><p>情况二：$i’$的回文范围在以$C$为中心的回文半径之外 $&lt;l…L…i’…r…C…i…R&gt;$，这种情况下，$i$的回文半径情况就是i到R的长度。$eg: (ab[cDcba)tTtabcDc]F$,这个串里面$T$为$C$，$L$和$R$用中括号表示,$i’$为左边的$D$,$i$为右边的$D$，$i’$扩出来的范围用圆括号表示出来,$i$的回文半径和$i’$的一样。</p>
 <ul>
-<li>证明: 首先$L$关于$i’$做个对称$L’$，$R$关于$i$做个对称$R’$,自然可得知$&lt;L…L’&gt;$和$<r'...r>$这两段一定是回文（这两段一定是逆序的关系，同时$<l...l'>$又在$&lt;l…r&gt;$之间，所以它又是一个回文），然后假设$R$的下一个字母是$X$，$R’$的前一个字母是$Y$，那$L’$的下一个字母就是关于$C$对称点$Y’$，,$L$的上一个字母就是$X$关于$C$的对称点$X’$,由于当时大回文没有扩出去$\Rightarrow$$X!= X’,X’=Y’$(在$i’$的回文区域内)，又因为$Y=Y’$，所以$X != Y$,于是就扩不动了$\Rightarrow$证毕。</l...l'></r'...r></li>
+<li>证明: 首先$L$关于$i’$做个对称$L’$，$R$关于$i$做个对称$R’$,自然可得知$&lt;L…L’&gt;$和<r'...r>这两段一定是回文（这两段一定是逆序的关系，同时$<l...l'>$又在$&lt;l…r&gt;$之间，所以它又是一个回文），然后假设$R$的下一个字母是$X$，$R’$的前一个字母是$Y$，那$L’$的下一个字母就是关于$C$对称点$Y’$，,$L$的上一个字母就是$X$关于$C$的对称点$X’$,由于当时大回文没有扩出去$\Rightarrow$$X!= X’,X’=Y’$(在$i’$的回文区域内)，又因为$Y=Y’$，所以$X != Y$,于是就扩不动了$\Rightarrow$证毕。</l...l'></r'...r></li>
 </ul>
 </li>
 <li><p>情况三：$i’$的回文半径刚好和$L$压线(重叠)，$eg: T[(abCba)kKkabCba]K$这种情况，左边的第一个C为$i’$，这种情况下，$i$到$R$这段肯定不用验证的，当然能不能更大，没人知道，还是要扩，如果最后一个位置是K的话，就可以扩，如果是个别的，比如S之类的，就没法扩了。</p>
@@ -521,7 +521,7 @@
 </li>
 </ul>
 <p>由于$R$这个东西，只往右推而不往左缩，首先$i$在$R$外的时候，此时一定是暴力扩，没问题，但是只要扩成功了，$R$一定在增大;第二大类的第三种可能性，从$R$的右边开始再往右扩，如果失败了，一下就停了，如果没失败，$R$也是再增加。所以不管是几个位置，只要成功的扩了，$R$都必然会增加，$R$最多也就是从最左推到最右，所以第一种和最后一种可能性即使发生了，整体的时间复杂度都不会高于$R$的变化范围。因为这两种方式都是在把R推高，而且R是不回落的，所以这两种整体的代价就是$R$最多能变多大嘛，所以整个Manacher算法的时间复杂度就是O(n)。</p>
-<h4 id="4-3-Code"><a href="#4-3-Code" class="headerlink" title="4.3 Code"></a>4.3 Code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxLcpsLength</span><span class="params">(str)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">if</span> str </span>== <span class="literal">NULL</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	pArr = []</span><br><span class="line">	str = handleString(str)</span><br><span class="line">	C = <span class="number">-1</span></span><br><span class="line">	R = <span class="number">-1</span></span><br><span class="line">	theMax = INT_MIN</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span> to i = len(str)</span><br><span class="line">		pArr[i] = R &gt; i ? min(pArr[ <span class="number">2</span> * C - i], R - i) : <span class="number">1</span></span><br><span class="line">		<span class="keyword">while</span> i + pArr[i] &lt; len(str) &amp;&amp; i - pArr[i] &gt; <span class="number">-1</span></span><br><span class="line">			<span class="keyword">if</span> str[i + pArr[i]] == charArr[i - pArr[i]]</span><br><span class="line">				pArr[i]++</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">if</span> i + pArr[i] &gt; R    <span class="comment">//更新全局的R和C</span></span><br><span class="line">			R = i + pArr[i]</span><br><span class="line">			C = i</span><br><span class="line">		theMax = max(theMax, pArr[i])</span><br><span class="line">	<span class="keyword">return</span> theMax - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-3-Code"><a href="#4-3-Code" class="headerlink" title="4.3 Code"></a>4.3 Code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxLcpsLength</span><span class="params">(str)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">if</span> str </span>== <span class="literal">NULL</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	pArr = []</span><br><span class="line">	str = handleString(str)</span><br><span class="line">	C = <span class="number">-1</span></span><br><span class="line">	R = <span class="number">-1</span></span><br><span class="line">	theMax = INT_MIN</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span> to i = len(str)</span><br><span class="line">		pArr[i] = R &gt; i ? min(pArr[ <span class="number">2</span> * C - i], R - i) : <span class="number">1</span></span><br><span class="line">		<span class="keyword">while</span> i + pArr[i] &lt; len(str) &amp;&amp; i - pArr[i] &gt; <span class="number">-1</span></span><br><span class="line">			<span class="keyword">if</span> str[i + pArr[i]] == charArr[i - pArr[i]]</span><br><span class="line">				pArr[i]++</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">if</span> i + pArr[i] &gt; R    <span class="comment">//更新全局的R和C</span></span><br><span class="line">			R = i + pArr[i]</span><br><span class="line">			C = i</span><br><span class="line">		theMax = max(theMax, pArr[i])</span><br><span class="line">	<span class="keyword">return</span> theMax/<span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>注：</p>
 <ol>
 <li>pArr为回文半径数组</li>
@@ -529,7 +529,7 @@
 <li>这个代码没有分上面的4种情况，做法是先找到一个起码不用验证的区域，然后还是扩一下，对于$O(1)$就出结论的情况，扩一下就会失败</li>
 <li>传入的str需要handleString处理一下，加#或任何你想加的字符，如下：</li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>[] handleString(str)</span><br><span class="line">	res = res[len(str) * <span class="number">2</span> + <span class="number">1</span>]</span><br><span class="line">	index = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span> to len(res)</span><br><span class="line">		res[i] = (i % <span class="number">1</span>) == <span class="number">0</span> ? <span class="string">'#'</span> : str[index++]</span><br><span class="line">	<span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>[] handleString(str)</span><br><span class="line">	res = res[len(str) * <span class="number">2</span> + <span class="number">1</span>]</span><br><span class="line">	index = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span> to len(res)</span><br><span class="line">		res[i] = (i % <span class="number">2</span>) == <span class="number">0</span> ? <span class="string">'#'</span> : str[index++]</span><br><span class="line">	<span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 <h4 id="4-4-总结"><a href="#4-4-总结" class="headerlink" title="4.4 总结"></a>4.4 总结</h4><p>Manacher算法种有很多扣边界的细节，比如求i的对称点，保证字符串不越界，以及比较哪两个位置，回文右边界R怎么更新，全局最大值等很多细节的问题。整个过程没太大难度，但是需要比较细心。</p>
 <h3 id="5-延伸题目"><a href="#5-延伸题目" class="headerlink" title="5. 延伸题目"></a>5. 延伸题目</h3><p>在一个字符串种，只能向后面添加字符，怎么让整个串变成回文串，并且让整个字符最短</p>
 <p>eg: abc12321 这个串就应该加上cba</p>
@@ -538,7 +538,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> R == len(str)</span><br><span class="line">	maxContainsEnd = pArr[i]</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
 <p>这里maxContainsEnd记录的是此时的回文半径，然后再扣边界，连接剩下的字符串即可</p>
 <h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h3><p>前面的证明由于Markdown本身画图的限制，所以都以数学符号的形式呈现，其实本身过程通过画图的话时比较容易理解的。</p>
-<p>再好的算法也要自己实现，上面的代码都是以伪代码的形式给出，具体实现之后将在我的GitHub中陆续上传。</p>
+<p>再好的算法也要自己实现，上面的代码都是以伪代码的形式给出，具体实现将在我的<a href="https://github.com/KnivesZee/algrithm_in_blog.git" target="_blank" rel="noopener">github仓库</a>中查看。</p>
 <blockquote>
 <p>Written with <a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a>. 2018.11.18</p>
 </blockquote>
