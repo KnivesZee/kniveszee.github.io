@@ -142,7 +142,7 @@
 <meta property="og:site_name" content="拾碎集">
 <meta property="og:description" content="今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？ 1. 原始问题返回$str_1$中是否存在子串$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1  注意子串和子序列的区别：子串是连续的，而子序列不一定连续  tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-05T09:57:20.027Z">
+<meta property="og:updated_time" content="2018-12-27T03:01:17.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP算法详解">
 <meta name="twitter:description" content="今天主要来写一下关于一个学生时代鬼见愁的算法KMP，那么KMP是用来解决那一类问题的呢？ 1. 原始问题返回$str_1$中是否存在子串$str_2$，若存在，则返回$str_1$中$str_2$的起始位置，若不存在，则返回-1  注意子串和子序列的区别：子串是连续的，而子序列不一定连续  tips: 实际中c++/Java中的实现是KMP的加强版实现，但也不可能比$O(n)$快，指数上会更快。">
@@ -381,8 +381,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-05T17:57:20+08:00">
-                2018-12-05
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-27T11:01:17+08:00">
+                2018-12-27
               </time>
             
           </span>
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2,379
+                  2,733
                 </span>
               
 
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  9
+                  11
                 </span>
               
             </div>
@@ -493,17 +493,19 @@
 <p>我们对$Y$位置求得了一个信息——即最长前缀和最长后缀的匹配长度，所以在$str_2$中假设求得了这个长度为$x$，则$str_2[0,x-1]$和$str_2[Y-x,Y-1]$长度相等且一样，接下来的流程就变成了$str_1[X-x,X-1]$与$str_2[0, x-1]$已经匹配，相对应的从$str_1[Z=x]$开始继续往下匹配即可，$str_2$的位置不变</p>
 <p>$eg:$<br>$str_1$ —abcabct<br>$str_2$ abcabca</p>
 <p>总结来说，就是每一次配对不成功，$str_2$都往右滑动(推)，而且有一段是我们不需要去配对的，从不确定的位置继续往下寻找</p>
-<h4 id="3-4-KMP算法加速的实质"><a href="#3-4-KMP算法加速的实质" class="headerlink" title="3.4 KMP算法加速的实质"></a>3.4 KMP算法加速的实质</h4><p>一旦$str_1$和$str_2$没有配对上时候，假设这里的$X$和$Y$位置上的字母没有匹配上，Y位置上计算出的next得到的位置是$Z$，对应$str_1$中的$j$位置。此时开始用$X$和$Z$进行匹配</p>
+<h4 id="3-4-KMP算法加速的实质"><a href="#3-4-KMP算法加速的实质" class="headerlink" title="3.4 KMP算法加速的实质"></a>3.4 KMP算法加速的实质</h4><p>一旦$str_1$和$str_2$没有配对上时候，假设这里的$X$和$Y$位置上的字母没有匹配上，Y位置上计算出的next得到的位置是$Z$，对应$str_1$中的$j$位置（[0,Z)和[j,X)这两段是匹配的）。此时开始用$X$和$Z$进行匹配</p>
 <p>$str_1$   i——-j——-X<br>$str_2$   0——Z——-Y</p>
 <p>这件事情的实质是——我们没有否定从$j$位置开头，有可能能匹配出$str_2$这种可能，虽然现在是$X$和$Z$进行比对的，但实质上比对的开头是$j$位置和$0$位置，只是因为$str_1[j,X)$和$str_2[0,Z)$是相等的，于是我们省掉了配对的过程而已；</p>
 <p>同时我们否定了从i位置开始到j位置中间这些位置的可能性，因为中间这些位置一律都配不出$str_2$。</p>
-<p>为什么i到j匹配不到$str_2$呢？</p>
+<p>为什么i到j之间匹配不到$str_2$呢？</p>
 <p>$pf:$</p>
-<p>我们假设有可能能匹配到$str_2$</p>
+<p>我们假设从i到j之间某位位置开头能匹配到$str_2$</p>
 <p>$str_1$   i—k—-j——-X<br>$str_2$   0—————Y</p>
 <p>假设$i$和$j$之间存在一个$k$位置，从$k$位置出发往后可以匹配出所有的$str_2$,且$next[Y] =  X - j$</p>
-<p>那么$str_1[k,X)$应该和$str_2$等量的前缀可以配上（因为既然都从$k$开始匹配了$str_2$全部，那么至少$[k,X]$长度是小于$str_2$的长度的，即$str_2$前面至少会等于$str_1[k,X)$</p>
+<p>由此我们可以得到$str_1[k,X)$应该和$str_2$相同长度的前缀可以配（因为既然都从$k$开始匹配了$str_2$全部，那么至少$[k,X]$长度是小于$str_2$的长度的，即$str_2$前面至少会等于$str_1[k,X)$</p>
+<p>但是$str_1[i,X) = str_2[0,Y)$</p>
 <p>我们就可以得到，$str_2$中[0，Y)就存在了一个长度大于$X-j$的一个最长前缀等与最长后缀,与$next$数组定义相矛盾</p>
+<p>so,i到j之间无法匹配到$str_2$</p>
 <p>证毕</p>
 <h4 id="3-5-code"><a href="#3-5-code" class="headerlink" title="3.5 code"></a>3.5 code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getIndexOf</span><span class="params">(str_1, str_2)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">if</span> param illegal</span></span><br><span class="line">		return -1</span><br><span class="line">	next[] = getNext(str_2)</span><br><span class="line">	i = <span class="number">0</span></span><br><span class="line">	j = <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> i&lt;len(str_1) &amp;&amp; j &lt; len(str_2)</span><br><span class="line">		<span class="keyword">if</span> str_1[i] == str_2[j]</span><br><span class="line">			i++</span><br><span class="line">			j++</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			<span class="keyword">if</span> next[j] == <span class="number">-1</span>  <span class="comment">// 说明第一个字符都配不出来，此时j已经等于0</span></span><br><span class="line">				i++</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				j = next[j]</span><br><span class="line">	<span class="keyword">return</span> j == len(str_2) ? i-j : <span class="number">-1</span></span><br></pre></td></tr></table></figure>
 <h4 id="3-7-next数组求法"><a href="#3-7-next数组求法" class="headerlink" title="3.7 next数组求法"></a>3.7 next数组求法</h4><ol>
@@ -511,19 +513,23 @@
 <li>1位置 0</li>
 <li>i位置如何求</li>
 </ol>
-<p>假设0~(i-1)位置上已经正确求得</p>
-<p>$eg:$</p>
-<p>——————-ba<br>——————-(i-1) i</p>
-<p>假设$i-1$的位置值为4，这时看长度为4的前缀的下一个字符，</p>
-<p>如果它等于$a$,则$i$位置等于5，为什么不可能有更长的，我们做一个假设对$a$来说如果你存在一个前缀为6,后缀为6。则，$i-1$位置肯定是b，那么长度为6的前缀的最后一个字符也必定为$b$,那么当时对$b$求的时候，必定为5而不是4，即$i-1$位置上所求得的最长前缀和最长后缀的值是不对的，证毕。</p>
-<p>如果它不等于a,应该怎么求</p>
-<p>$eg: str ababcababctk$</p>
-<p>其中$str_{i-1} = b$， $str_i = e$</p>
-<p>此时$next[i-1] = 4$（abab）,并且$c != t$,继续将$abab$划分为前缀$ab$，再用$a$和$t$进行对比，还是不相等，再往前跳，$ab$这个串没相应的前后缀了，</p>
+<p>假设[0,i-1]位置上已经正确求得</p>
+<p>$eg: ababcababct$</p>
+<p>其中$str_{i-1} = c$， $str_i = t$</p>
+<p>此时：$i-1$的位置的next值为4，这时看长度为4的前缀的下一个字符，</p>
+<p>如果它等于i-1位置上的$b$,则$i$位置的next值等于5。那么为什么不可能有更长的，我们做一个假设对$a$来说如果存在一个前缀为6与后缀为6匹配。$i-1$位置肯定是b，那么长度为6的前缀的最后一个字符也必定为$b$,那么当时对$b$求next值的时候，必定为5而不是4，即$i-1$位置上所求得的最长前缀和最长后缀的值是不对的，证毕。</p>
+<p>然后就是第二种情况：如果它不等于a,应该怎么求</p>
+<p>$eg: ababfababct$</p>
+<p>其中$str_{i-1} = c$， $str_i = t$</p>
+<p>此时$next[i-1] = 4$（abab）,并且str[4]!=str[i-1]，即$f != c$,此时继续将$abab$划分为前缀$ab$（即求出next[4]=2），再用str[2]的$a$和str[i-1]的$c$进行对比，还是不相等，再往前跳（next[2]=0），$ab$这个串没相应的前后缀了。即用str[0]的$a$和str[i-1]的$c$对比，还是不想等。最后next[0]=-1，此时无法再向前跳了。则结束跳，另next[i]=0即可。</p>
+<p>上面的是一直跳到不能再跳的情况，那么如果跳的过程中出现了匹配又如何？</p>
 <p>$eg: ababcababak$</p>
-<p>这种情况前缀为$abab$, 此时 $c!=a$，$c$前面的字符串为$abab$,匹配的最大前缀为$ab$,此时$a = a$（i位置上的），则最大前缀长度就等于$c$前面的最大匹配2再加上1为3，除此之外不存在更长的了</p>
-<h4 id="3-8-next-code"><a href="#3-8-next-code" class="headerlink" title="3.8 next code"></a>3.8 next code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] getNext(str_2)</span><br><span class="line">	<span class="function"><span class="keyword">if</span> <span class="title">len</span><span class="params">(str_2)</span> </span>== <span class="number">1</span></span><br><span class="line">		<span class="keyword">return</span> [<span class="number">-1</span>]</span><br><span class="line">	next[<span class="number">0</span>] = <span class="number">-1</span></span><br><span class="line">	next[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">	i = <span class="number">2</span>  </span><br><span class="line">	cn = <span class="number">0</span>  <span class="comment">// 跳到的位置</span></span><br><span class="line">	<span class="keyword">while</span> i &lt; len(str_2)</span><br><span class="line">		<span class="keyword">if</span> str_2[i<span class="number">-1</span>] == str_2[cn]  <span class="comment">// 前一个字符 == 当前跳到位置的字符</span></span><br><span class="line">			next[i++] = ++cn      <span class="comment">// 跳到位置（跳到cn,则前面的字符串的长度为cn）</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> cn &gt; <span class="number">0</span>			  <span class="comment">// cn往前跳（我还可以往前跳）</span></span><br><span class="line">			cn = next[cn]</span><br><span class="line">		<span class="keyword">else</span>					  <span class="comment">// 跳无可跳</span></span><br><span class="line">			next[i++] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-KMP的应用"><a href="#4-KMP的应用" class="headerlink" title="4. KMP的应用"></a>4. KMP的应用</h3><h4 id="4-1-question1"><a href="#4-1-question1" class="headerlink" title="4.1 question1"></a>4.1 question1</h4><p>假设原始串为$abcabc$，请你生成一个大字符串，只能在原串后面添加，要求此大串的长度是最短的，此大串包含2个原始串，而且开头的位置还要不一样</p>
+<p>这种情况前缀为$abab$, 此时 $c!=a$，$c$前面的字符串为$abab$,匹配的最大前缀为$ab$,此时$a = a$（i位置上的，出现了匹配），则最大前缀长度就等于$c$前面的最大匹配2（next[4]=2）再加上1为3，除此之外不存在更长的了</p>
+<h4 id="3-8-next-code"><a href="#3-8-next-code" class="headerlink" title="3.8 next code"></a>3.8 next code</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] getNext(str_2)</span><br><span class="line">	<span class="function"><span class="keyword">if</span> <span class="title">len</span><span class="params">(str_2)</span> </span>== <span class="number">1</span></span><br><span class="line">		<span class="keyword">return</span> [<span class="number">-1</span>]</span><br><span class="line">	next[<span class="number">0</span>] = <span class="number">-1</span></span><br><span class="line">	next[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">	i = <span class="number">2</span>  </span><br><span class="line">	cn = <span class="number">0</span>  <span class="comment">// 跳到的位置</span></span><br><span class="line">	<span class="keyword">while</span> i &lt; len(str_2)</span><br><span class="line">		<span class="keyword">if</span> str_2[i<span class="number">-1</span>] == str_2[cn]  <span class="comment">// 前一个字符 == 当前跳到位置的字符</span></span><br><span class="line">			next[i++] = ++cn      <span class="comment">// 跳到位置（跳到cn,则前面的字符串的长度为cn）,这里要注意++的前后关系</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> cn &gt; <span class="number">0</span>			  <span class="comment">// cn往前跳（我还可以往前跳）</span></span><br><span class="line">			cn = next[cn]</span><br><span class="line">		<span class="keyword">else</span>					  <span class="comment">// 跳无可跳</span></span><br><span class="line">			next[i++] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>这里需要注意到的点就是：</p>
+<pre><code>- cn的实质其实是next[i-1]，最开始初始化的值为0
+- 当str_2[i-1] == str_2[cn]的时候，这个时候需如果要使用++运算符，则需先将cn加一，再赋值。这个情况下，cn就变成了next[i]位置的值，那么相对于下一个str[i+1]来说，需要对比的就是str[(i+1)-1]和str[next(i+1-1)]即str[cn]
+</code></pre><h3 id="4-KMP的应用"><a href="#4-KMP的应用" class="headerlink" title="4. KMP的应用"></a>4. KMP的应用</h3><h4 id="4-1-question1"><a href="#4-1-question1" class="headerlink" title="4.1 question1"></a>4.1 question1</h4><p>假设原始串为$abcabc$，请你生成一个大字符串，只能在原串后面添加，要求此大串的长度是最短的，此大串包含2个原始串，而且开头的位置还要不一样</p>
 <p>$eg: abcabc$</p>
 <p>结果为：abcabcabc，添加了一个abc</p>
 <p>$eg: abcabc$</p>
@@ -540,7 +546,8 @@
 <p>思路： 实质上就是一个KMP问题，终止条件下前缀和后缀永远是一个整数倍的关系</p>
 <h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h3><p>KMP是70年代的算法，当下流行的大部分都是概率的，贝叶斯，数据挖掘等基于概率的算法，这些基于概率的算法都是不追求最优解的，因为最优解不可达，相当复杂，只能追求优良解。</p>
 <p>但基础算法可以提高我们的coding能力，基础算法也可以说是确定算法，有唯一正确解。虽然不是学术，工程的主流，但是它太基础了，一定要搞明白，因为就算是算法工程师也需要考coding。</p>
-<p>对于上面的代码，都是以伪代码的形式给出，具体实现将在我的GitHub中陆续上传。</p>
+<p>对于上面的代码，都是以伪代码的形式给出，具体实现将在我的<a href="https://github.com/KnivesZee/algrithm_in_blog.git" target="_blank" rel="noopener">github仓库</a>里给出了python和c++的两种实现。</p>
+<p>需要注意的就是c++和python的具体实现有部分极小的差异，以及自己在实现的过程中需要验证next数组的正确性。</p>
 <blockquote>
 <p>Written with <a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a>. 2018.11.15</p>
 </blockquote>
@@ -860,7 +867,7 @@ var ap = new APlayer({
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">36.7k</span>
+    <span title="Site words total count">37.1k</span>
   
 </div>
 
