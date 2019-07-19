@@ -775,12 +775,34 @@ var ap = new APlayer({
     mode: 'random',                                                    // Optional, play mode, can be `random` `single` `circulation`(loop) `order`(no loop), default: `circulation`
     preload: 'metadata',                                               // Optional, the way to load music, can be 'none' 'metadata' 'auto', default: 'auto'
     listmaxheight: '513px',                                             // Optional, max height of play list
-    music: {                                                           // Required, music info, see: ###With playlist
-        title: 'Uncharted',                                          // Required, music title
-        author: 'Jeremy Lim',                          // Required, music author
-        url: 'http://pj5mfieap.bkt.clouddn.com/Jeremy%20Lim%20-%20Uncharted%20%28Original%20Mix%29.mp3',  // Required, music url
-        pic: 'http://pj5mfieap.bkt.clouddn.com/IMG_7714.JPG',  // Optional, music picture
-    }
+    music: [
+        {                                                           // Required, music info, see: ###With playlist
+            title: 'Ocean of Memories',                                          // Required, music title
+            author: '深澤秀行',                          // Required, music author
+            url: 'http://images.knives.ink/%E6%B7%B1%E6%BE%A4%E7%A7%80%E8%A1%8C%20-%20Ocean%20of%20Memories.mp3',  // Required, music url
+            //pic: 'http://pj5mfieap.bkt.clouddn.com/IMG_7714.JPG',  // Optional, music picture
+        },
+        {                                                           // Required, music info, see: ###With playlist
+            title: 'Snowflakes',                                          // Required, music title
+            author: '京田誠一',                          // Required, music author
+            url: 'http://images.knives.ink/%E4%BA%AC%E7%94%B0%E8%AA%A0%E4%B8%80%20-%20Snowflakes.mp3',  // Required, music url
+        },
+        {                                                           // Required, music info, see: ###With playlist
+            title: '安河桥',                                          // Required, music title
+            author: 'Cover',                          // Required, music author
+            url: 'http://images.knives.ink/%E5%B0%8F%E7%86%99E.R,%E5%AE%8B%E5%86%AC%E9%87%8E%20-%20%E5%AE%89%E5%92%8C%E6%A1%A5%E3%80%8E%E7%94%B7%E5%A5%B3%E5%8F%8C%E5%A3%B0%E9%81%93%E3%80%8F%EF%BC%88Cover%EF%BC%9A%E5%88%98%E5%AE%89%E7%90%AA%EF%BC%89.mp3',  // Required, music url
+        },
+        {                                                           // Required, music info, see: ###With playlist
+            title: 'Solitude',                                          // Required, music title
+            author: '坂本龍一',                          // Required, music author
+            url: 'http://images.knives.ink/%E5%9D%82%E6%9C%AC%E9%BE%8D%E4%B8%80%20-%20Solitude.mp3',  // Required, music url
+        },
+        {                                                           // Required, music info, see: ###With playlist
+            title: '故梦',                                          // Required, music title
+            author: '双笙',                          // Required, music author
+            url: 'http://images.knives.ink/%E5%8F%8C%E7%AC%99%20-%20%E6%95%85%E6%A2%A6%EF%BC%88Cover%20%E6%A9%99%E7%BF%BC%EF%BC%89.mp3',  // Required, music url
+        }
+    ]
 });
 </script>
         </div>
